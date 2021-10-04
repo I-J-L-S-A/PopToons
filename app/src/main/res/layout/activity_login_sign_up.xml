@@ -8,7 +8,7 @@
     tools:context=".ui.activities.LoginSignUpActivity">
 
     <FrameLayout
-        android:id="@+id/containerLogin"
+        android:id="@+id/containerLoginSignUp"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline3"

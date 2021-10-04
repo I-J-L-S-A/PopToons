@@ -9,22 +9,22 @@ import androidx.fragment.app.Fragment
 import com.ijlsa.poptoons.R
 import com.ijlsa.poptoons.ui.interfaces.OnActionCompleteListener
 
-class LoginFragment: Fragment() {
+class SignUpFragment: Fragment(){
     private var actionCompleteListener: OnActionCompleteListener? = null
-    private lateinit var buttonLogin: Button
+    private lateinit var buttonSignUp: Button
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View {
-        val view = inflater.inflate(R.layout.fragment_login, container, false)
+        val view = inflater.inflate(R.layout.fragment_sign_up, container, false)
         //view.background.alpha = 0
         return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        buttonLogin = view.findViewById(R.id.loginButton)
-        buttonLogin.setOnClickListener {
+        buttonSignUp = view.findViewById(R.id.registerButton)
+        buttonSignUp.setOnClickListener {
             actionCompleteListener?.success()
         }
     }

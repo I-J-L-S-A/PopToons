@@ -7,21 +7,21 @@
 
     <ImageView
         android:id="@+id/signUpLogo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="266dp"
+        android:layout_height="97dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.119"
+        app:layout_constraintVertical_bias="0.069"
         app:srcCompat="@drawable/signup" />
 
     <TextView
         android:id="@+id/userText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="12dp"
         android:fontFamily="@font/wendy_one"
         android:text="Username"
         android:textSize="25dp"
@@ -44,7 +44,7 @@
         android:id="@+id/emailText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="24dp"
         android:fontFamily="@font/wendy_one"
         android:text="Email"
         android:textSize="25dp"
@@ -97,9 +97,12 @@
         android:inputType="textPassword"
         android:textColor="#000000"
         android:textSize="25dp"
+        app:layout_constraintBottom_toTopOf="@+id/registerButton"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.486"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/confirmPasswordText" />
+        app:layout_constraintTop_toBottomOf="@+id/confirmPasswordText"
+        app:layout_constraintVertical_bias="0.169" />
 
     <TextView
         android:id="@+id/confirmPasswordText"
@@ -128,6 +131,6 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signUpLogo"
-        app:layout_constraintVertical_bias="0.966" />
+        app:layout_constraintVertical_bias="0.876" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,8 +9,8 @@ import androidx.fragment.app.Fragment
 import com.ijlsa.poptoons.R
 import com.ijlsa.poptoons.ui.interfaces.OnActionCompleteListener
 
-class SignUpFragment: Fragment(){
-    private var actionCompleteListener: OnActionCompleteListener? = null
+class SignUpFragment: StepsBaseFragment(){
+
     private lateinit var buttonSignUp: Button
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -25,11 +25,11 @@ class SignUpFragment: Fragment(){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         buttonSignUp = view.findViewById(R.id.registerButton)
         buttonSignUp.setOnClickListener {
-            actionCompleteListener?.success()
+            onSuccess?.invoke()
         }
+
+
     }
 
-    fun setActionCompleteListener(actionListener: OnActionCompleteListener){
-        actionCompleteListener = actionListener
-    }
+
 }

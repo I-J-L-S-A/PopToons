@@ -21,6 +21,11 @@ class MainMenuActivity : AppCompatActivity() {
 
     fun loginSignUpMenu(view: View) {
         val intent = Intent(this, LoginSignUpActivity::class.java)
+        if(view.id == R.id.buttonLoginMainMenu){
+            intent.putExtra("fragment", "login")
+        } else if (view.id == R.id.buttonSignUpMainMenu){
+            intent.putExtra("fragment", "signup")
+        }
         startActivity(intent)
     }
 }

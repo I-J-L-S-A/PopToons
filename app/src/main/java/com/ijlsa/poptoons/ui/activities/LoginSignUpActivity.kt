@@ -2,14 +2,16 @@ package com.ijlsa.poptoons.ui.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.widget.Toast
 import com.ijlsa.poptoons.R
 import com.ijlsa.poptoons.ui.fragments.LoginFragment
 import com.ijlsa.poptoons.ui.fragments.SignUpFragment
-import com.ijlsa.poptoons.ui.interfaces.OnActionCompleteListener
+import com.ijlsa.poptoons.ui.replaceFragment
 
 
 class LoginSignUpActivity : AppCompatActivity() {
+
+    lateinit var extra : Bundle
 
     val loginFragment = LoginFragment()
     val signUpFragment = SignUpFragment()
@@ -17,32 +19,31 @@ class LoginSignUpActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login_sign_up)
+        supportActionBar?.hide()
+        extra = intent.extras!!
+        val valor = extra.getString("fragment")
+        if(valor == "login"){
+            replaceFragment(R.id.containerLoginSignUp, loginFragment)
+        } else if(valor == "signup"){
+            replaceFragment(R.id.containerLoginSignUp, signUpFragment)
+        }
 
-        replaceWithFragment(loginFragment)
+        loginFragment.setOnSuccsessListener {
+            replaceFragment(R.id.containerLoginSignUp, signUpFragment)
+        }
 
-        loginFragment.setActionCompleteListener(object: OnActionCompleteListener{
-            override fun success() {
-                goToNextFragment(signUpFragment)
-            }
-            override fun error() {
-                TODO("Not yet implemented")
-            }
+        loginFragment.setOnErrorListener {
+            Toast.makeText(this, "Error ${it}", Toast.LENGTH_SHORT).show()
+        }
 
-        })
+        signUpFragment.setOnSuccsessListener {
+            replaceFragment(R.id.containerLoginSignUp, loginFragment)
+        }
 
-    }
+        signUpFragment.setOnErrorListener {
+            Toast.makeText(this, "Error ${it}", Toast.LENGTH_SHORT).show()
+        }
 
-    fun replaceWithFragment(fragment: Fragment){
-        val ft = supportFragmentManager.beginTransaction()
-        ft.replace(R.id.containerLoginSignUp, fragment)
-        ft.commit()
-    }
-
-    fun goToNextFragment(fragment: Fragment){
-        val ft = supportFragmentManager.beginTransaction()
-        ft.replace(R.id.containerLoginSignUp, fragment)
-        ft.addToBackStack("TODO")
-        ft.commit()
     }
 
     override fun onBackPressed() {

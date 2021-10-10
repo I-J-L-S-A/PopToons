@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:fontFamily="@font/wendy_one"
-        android:text="Username"
+        android:text="@string/username"
         android:textSize="25dp"
         app:layout_constraintStart_toStartOf="@+id/editUser"
         app:layout_constraintTop_toBottomOf="@+id/signUpLogo" />
@@ -70,7 +70,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
         android:fontFamily="@font/wendy_one"
-        android:text="Password"
+        android:text="@string/password"
         android:textSize="25dp"
         app:layout_constraintStart_toStartOf="@+id/editPassword"
         app:layout_constraintTop_toBottomOf="@+id/editEmail" />
@@ -110,10 +110,19 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:fontFamily="@font/wendy_one"
-        android:text="Confirm Password"
+        android:text="@string/repeat_password"
         android:textSize="25dp"
         app:layout_constraintStart_toStartOf="@+id/editConfirmPassword"
         app:layout_constraintTop_toBottomOf="@+id/editPassword" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/terms_and_conditions"
+        android:textColor="@color/teal_200"
+        app:layout_constraintStart_toStartOf="@+id/editConfirmPassword"
+        app:layout_constraintTop_toBottomOf="@+id/editConfirmPassword" />
 
     <Button
         android:id="@+id/registerButton"
@@ -121,7 +130,7 @@
         android:layout_height="wrap_content"
         android:backgroundTint="#5CF05C"
         android:fontFamily="@font/wendy_one"
-        android:text="Register"
+        android:text="@string/sign_up"
         android:textAlignment="center"
         android:textColor="#000000"
         app:cornerRadius="5dp"
@@ -132,5 +141,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signUpLogo"
         app:layout_constraintVertical_bias="0.876" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/login"
+        android:textColor="@color/teal_200"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/registerButton"
+        app:layout_constraintVertical_bias="0.187" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

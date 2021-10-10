@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="password">Contraseña</string>
+    <string name="login">Ingresar</string>
+    <string name="sign_up">Registrar</string>
+    <string name="username">Nombre de Usuario</string>
+    <string name="repeat_password">Repita Contraseña</string>
+    <string name="terms_and_conditions">Acepto los términos y condiciones</string>
+    <string name="forgot_password">¿Olvidaste tu contraseña?</string>
+</resources>

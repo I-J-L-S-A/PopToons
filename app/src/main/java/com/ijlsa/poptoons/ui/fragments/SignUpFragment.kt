@@ -1,5 +1,6 @@
 package com.ijlsa.poptoons.ui.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
 import com.ijlsa.poptoons.R
+import com.ijlsa.poptoons.ui.activities.MainMenuActivity
 import com.ijlsa.poptoons.ui.interfaces.OnActionCompleteListener
 
 class SignUpFragment: StepsBaseFragment(){
@@ -18,18 +20,16 @@ class SignUpFragment: StepsBaseFragment(){
             savedInstanceState: Bundle?
     ): View {
         val view = inflater.inflate(R.layout.fragment_sign_up, container, false)
-        //view.background.alpha = 0
         return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         buttonSignUp = view.findViewById(R.id.registerButton)
         buttonSignUp.setOnClickListener {
-            onSuccess?.invoke()
+            val intent = Intent(activity, MainMenuActivity::class.java)
+            startActivity(intent)
+            //Pasar datos de registro a otra funcion
+            activity?.finish()
         }
-
-
     }
-
-
 }

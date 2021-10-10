@@ -28,21 +28,18 @@ class LoginSignUpActivity : AppCompatActivity() {
             replaceFragment(R.id.containerLoginSignUp, signUpFragment)
         }
 
-        loginFragment.setOnSuccsessListener {
+        /*loginFragment.setOnSuccsessListener {
             replaceFragment(R.id.containerLoginSignUp, signUpFragment)
         }
-
         loginFragment.setOnErrorListener {
             Toast.makeText(this, "Error ${it}", Toast.LENGTH_SHORT).show()
         }
-
         signUpFragment.setOnSuccsessListener {
             replaceFragment(R.id.containerLoginSignUp, loginFragment)
         }
-
         signUpFragment.setOnErrorListener {
             Toast.makeText(this, "Error ${it}", Toast.LENGTH_SHORT).show()
-        }
+        }*/
 
     }
 

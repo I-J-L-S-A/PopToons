@@ -1,5 +1,6 @@
 package com.ijlsa.poptoons.ui.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
 import com.ijlsa.poptoons.R
+import com.ijlsa.poptoons.ui.activities.MainMenuActivity
 import com.ijlsa.poptoons.ui.interfaces.OnActionCompleteListener
 
 class LoginFragment: StepsBaseFragment() {
@@ -25,7 +27,10 @@ class LoginFragment: StepsBaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         buttonLogin = view.findViewById(R.id.loginButton)
         buttonLogin.setOnClickListener {
-            onSuccess?.invoke()
+            val intent = Intent(activity, MainMenuActivity::class.java)
+            startActivity(intent)
+            //Pasar datos de login a otra funcion
+            activity?.finish()
         }
 
 

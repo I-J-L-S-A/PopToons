@@ -5,4 +5,6 @@
     <color name="Secondary3">#a850a6</color>
     <color name="Primary">#545454</color>
     <color name="blue">#2BA5F7</color>
+    <color name="menuColors">#000000</color>
+    <color name="black">#ffffff</color>
 </resources>

@@ -7,4 +7,7 @@
     <string name="repeat_password">Repeat Password</string>
     <string name="terms_and_conditions">I accept the Terms and Conditions</string>
     <string name="forgot_password">Forgot Password?</string>
+    <string name="item_Profile">Profile</string>
+    <string name="item_home">Home</string>
+    <string name="item_Search">Search</string>
 </resources>

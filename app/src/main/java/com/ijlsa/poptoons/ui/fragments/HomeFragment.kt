@@ -7,12 +7,13 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ijlsa.poptoons.R
+import com.ijlsa.poptoons.ui.adapters.HomeCategoriesListAdapter
 import com.ijlsa.poptoons.ui.adapters.HomeListsAdapter
 import com.ijlsa.poptoons.ui.data.temp_data
 
-class HomeFragment: StepsBaseFragment() {
+class HomeFragment : StepsBaseFragment() {
 
-    private val homeAdapter = HomeListsAdapter()
+    private val homeAdapter = HomeCategoriesListAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -20,14 +21,15 @@ class HomeFragment: StepsBaseFragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
-        return  view
+        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val recyclerView = view.findViewById<RecyclerView>(R.id.rvHome)
         recyclerView.adapter = homeAdapter
-        recyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        recyclerView.layoutManager =
+            LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
 
-        homeAdapter.addAll(temp_data.seriesList)
+        homeAdapter.addAll(temp_data.categoriesList)
     }
 }

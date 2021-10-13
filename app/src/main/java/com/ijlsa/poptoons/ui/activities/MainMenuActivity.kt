@@ -17,7 +17,6 @@ class MainMenuActivity : AppCompatActivity() {
     private lateinit var bottomMenu: BottomNavigationView
 
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_menu)
@@ -27,8 +26,8 @@ class MainMenuActivity : AppCompatActivity() {
         bottomMenu.itemIconTintList = null
 
 
-
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment_container) as NavHostFragment
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.nav_host_fragment_container) as NavHostFragment
 
         val navController = navHostFragment.navController
 
@@ -43,9 +42,9 @@ class MainMenuActivity : AppCompatActivity() {
 
     fun loginSignUpMenu(view: View) {
         val intent = Intent(this, LoginSignUpActivity::class.java)
-        if(view.id == R.id.buttonLoginMainMenu){
+        if (view.id == R.id.buttonLoginMainMenu) {
             intent.putExtra("fragment", "login")
-        } else if (view.id == R.id.buttonSignUpMainMenu){
+        } else if (view.id == R.id.buttonSignUpMainMenu) {
             intent.putExtra("fragment", "signup")
         }
         startActivity(intent)

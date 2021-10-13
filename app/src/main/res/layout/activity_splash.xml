@@ -9,7 +9,7 @@
 
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/ivImageSerie"
         android:layout_width="153dp"
         android:layout_height="72dp"
         app:layout_constraintBottom_toBottomOf="parent"

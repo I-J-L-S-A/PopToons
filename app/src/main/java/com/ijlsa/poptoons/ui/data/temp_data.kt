@@ -2,7 +2,7 @@ package com.ijlsa.poptoons.ui.data
 
 import com.ijlsa.poptoons.ui.model.Serie
 
-class temp_data {
+object temp_data {
     val seriesList = mutableListOf(
         Serie(
             title = "Bob Esponja",
@@ -21,7 +21,7 @@ class temp_data {
             title = "CatDog",
             description = "Un gato y un perro siameses comparten el mismo cuerpo...",
             imageUrl_Presentation = "http://cdn5.upsocl.com/wp-content/uploads/2018/07/Captura-de-pantalla-2017-07-10-a-las-9.14.57-a.m..jpg",
-            imageUrl_Preview = "x",
+            imageUrl_Preview = "https://images-ext-1.discordapp.net/external/YtNWpHqMdAoTKOfRQXCamVhtjlGaY86o6VS7upP5bQA/%3Fimage-profile%3Dimage_full%26io%3Dlandscape/https/10play.com.au/ip/s3/2021/04/27/4e06f398a94527274dbd4aa2267f5ee1-1051874.jpg",
             seasons = 4,
             episodes = mutableListOf(mutableListOf("Episodio 1", "Eposidio 2", "Episodio 3"),
                 mutableListOf("Episodio 1", "Eposidio 2", "Episodio 3"),

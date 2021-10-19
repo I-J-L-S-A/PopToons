@@ -14,10 +14,22 @@
         android:id="@+id/homeFragment"
         android:name="com.ijlsa.poptoons.ui.fragments.HomeFragment"
         android:label="HomeFragment"
-        tools:layout="@layout/fragment_home"/>
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_serieDetailsFragment"
+            app:destination="@id/serieDetailsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.ijlsa.poptoons.ui.fragments.ProfileFragment"
         android:label="ProfileFragment"
         tools:layout="@layout/fragment_profile"/>
+    <fragment
+        android:id="@+id/serieDetailsFragment"
+        android:name="com.ijlsa.poptoons.ui.fragments.SerieDetailsFragment"
+        android:label="SerieDetailsFragment" >
+        <argument
+            android:name="serie"
+            app:argType="com.ijlsa.poptoons.ui.model.Serie" />
+    </fragment>
 </navigation>

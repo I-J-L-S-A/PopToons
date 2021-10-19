@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/backg">
 
     <ImageView
         android:id="@+id/signUpLogo"
@@ -124,6 +125,21 @@
         app:layout_constraintStart_toStartOf="@+id/editConfirmPassword"
         app:layout_constraintTop_toBottomOf="@+id/editConfirmPassword" />
 
+    <TextView
+        android:id="@+id/tvLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/login"
+        android:textColor="@color/blue"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/registerButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox"
+        app:layout_constraintVertical_bias="0.129"
+        tools:visibility="visible" />
+
     <Button
         android:id="@+id/registerButton"
         android:layout_width="wrap_content"
@@ -140,20 +156,9 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signUpLogo"
-        app:layout_constraintVertical_bias="0.913"
+        app:layout_constraintVertical_bias="0.97"
         app:strokeColor="#000000"
-        app:strokeWidth="2dp" />/>
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:text="@string/login"
-        android:textColor="@color/blue"
-        app:layout_constraintBottom_toTopOf="@+id/registerButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:strokeWidth="2dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.ijlsa.poptoons.R
 import com.ijlsa.poptoons.ui.activities.MainMenuActivity
@@ -30,6 +31,13 @@ class SignUpFragment: StepsBaseFragment(){
             startActivity(intent)
             //Pasar datos de registro a otra funcion
             activity?.finish()
+        }
+        val login = view.findViewById<TextView>(R.id.tvLogin)
+        login.setOnClickListener{
+            val ft = parentFragmentManager.beginTransaction()
+            ft.add(LoginFragment(), "tagLogin")
+            ft.addToBackStack("Login")
+            ft.commit()
         }
     }
 }

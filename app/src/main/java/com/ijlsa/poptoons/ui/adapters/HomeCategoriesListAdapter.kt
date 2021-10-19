@@ -8,7 +8,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ijlsa.poptoons.R
 import com.ijlsa.poptoons.ui.data.temp_data
-import com.ijlsa.poptoons.ui.model.Serie
+import com.ijlsa.poptoons.ui.model.Categories
+import com.ijlsa.poptoons.ui.model.Series
 
 class HomeCategoriesListAdapter : RecyclerView.Adapter<HomeCategoriesListViewH>() {
 
@@ -42,11 +43,11 @@ class HomeCategoriesListViewH(itemView: View) : RecyclerView.ViewHolder(itemView
 
     private val tvCategory = itemView.findViewById<TextView>(R.id.tvCategorie)
     private val recyclerView = itemView.findViewById<RecyclerView>(R.id.rvSeriesList)
-    private val seriesAdapter = HomeListsAdapter()
+    private val seriesAdapter = HomeSeriesListsAdapter()
 
     fun bind(category: String) {
 
-        tvCategory.text = category
+        tvCategory.text = category.toString()
         recyclerView.adapter = seriesAdapter
         recyclerView.layoutManager =
             LinearLayoutManager(itemView.context, LinearLayoutManager.HORIZONTAL, false)
@@ -57,8 +58,8 @@ class HomeCategoriesListViewH(itemView: View) : RecyclerView.ViewHolder(itemView
 
     private fun listOfCategorySeries(
         category: String,
-        seriesList: MutableList<Serie>
-    ): MutableList<Serie> {
+        seriesList: MutableList<Series>
+    ): MutableList<Series> {
 //        var newSeriesList = mutableListOf<Serie>()
 
 //        seriesList.forEach { serie ->
@@ -69,7 +70,7 @@ class HomeCategoriesListViewH(itemView: View) : RecyclerView.ViewHolder(itemView
 
 //        return newSeriesList
         return seriesList.filter { serie ->
-            serie.genders.contains(category)
-        } as MutableList<Serie>
+            serie.genres.contains(category)
+        } as MutableList<Series>
     }
 }

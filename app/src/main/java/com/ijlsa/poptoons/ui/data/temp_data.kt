@@ -1,6 +1,7 @@
 package com.ijlsa.poptoons.ui.data
 
-import com.ijlsa.poptoons.ui.model.Serie
+import com.ijlsa.poptoons.ui.model.Categories
+import com.ijlsa.poptoons.ui.model.Series
 
 object temp_data {
     val categoriesList = mutableListOf(
@@ -14,7 +15,7 @@ object temp_data {
         "2010's"
     )
     val seriesList = mutableListOf(
-        Serie(
+        Series(
             title = "Bob Esponja",
             description = "Vive en una piña debajo del mar!",
             imageUrl_Presentation = "https://images-na.ssl-images-amazon.com/images/S/pv-target-images/78beb6024e32d6511e887425756f9656a3d2439ccb11400d9b52476f4194d4c2._SX1080_.jpg",
@@ -25,10 +26,10 @@ object temp_data {
                 mutableListOf("Episodio 1", "Eposidio 2", "Episodio 3"),
                 mutableListOf("Episodio 1", "Eposidio 2")
             ),
-            genders = mutableListOf("Comedia", "Infantil"),
+            genres = mutableListOf("Comedia", "Infantil"),//TODO cambiar por mutableListOf(Categories.Comedy, Categories.Child),
             publication_year = 1999
         ),
-        Serie(
+        Series(
             title = "CatDog",
             description = "Un gato y un perro siameses comparten el mismo cuerpo...",
             imageUrl_Presentation = "https://cdn5.upsocl.com/wp-content/uploads/2018/07/Captura-de-pantalla-2017-07-10-a-las-9.14.57-a.m..jpg",
@@ -39,10 +40,10 @@ object temp_data {
                 mutableListOf("Episodio 1", "Eposidio 2", "Episodio 3"),
                 mutableListOf("Episodio 1", "Eposidio 2")
             ),
-            genders = mutableListOf("Comedia", "Humor Negro"),
+            genres = mutableListOf("Comedia", "Humor Negro"),//TODO cambiar por mutableListOf(Categories.Comedy, Categories.DarkHumor),
             publication_year = 2005
         ),
-        Serie(
+        Series(
             title = "Laboratorio de Dexter",
             description = "Dexter es un pequeño superdotado...",
             imageUrl_Presentation = "https://3.bp.blogspot.com/-cu0vowTIjn8/ToiDVtcZbJI/AAAAAAAAPYM/e1w1i4aJsrs/s1600/Dexter+Laboratory.jpg",
@@ -53,10 +54,10 @@ object temp_data {
                 mutableListOf("Episodio 1", "Eposidio 2", "Episodio 3"),
                 mutableListOf("Episodio 1", "Eposidio 2")
             ),
-            genders = mutableListOf("Comedia", "Aventura", "Ciencia Ficcion", "Infantil"),
+            genres = mutableListOf("Comedia", "Aventura", "Ciencia Ficcion", "Infantil"),//TODO cambiar por mutableListOf(Categories.Comedy, Categories.Adventure, Categories.ScienceFiction, Categories.Child),
             publication_year = 2003
         ),
-        Serie(
+        Series(
             title = "Rick and Morty",
             description = "Rick Sanchez llega de imprevisto...",
             imageUrl_Presentation = "https://bloygo.yoigo.com/embed/0fe1e3ce91d9ee24922cdf4a4195d335d680a97a1533116852/portada_Rick_y_Morty.jpg",
@@ -67,7 +68,7 @@ object temp_data {
                 mutableListOf("Episodio 1", "Eposidio 2", "Episodio 3"),
                 mutableListOf("Episodio 1", "Eposidio 2")
             ),
-            genders = mutableListOf("Comedia", "Aventura", "Ciencia Ficcion", "Humor Negro"),
+            genres = mutableListOf("Comedia", "Aventura", "Ciencia Ficcion", "Humor Negro"),//TODO cambiar por mutableListOf(Categories.Comedy, Categories.Adventure, Categories.ScienceFiction, Categories.DarkHumor)
             publication_year = 2013
         )
     )

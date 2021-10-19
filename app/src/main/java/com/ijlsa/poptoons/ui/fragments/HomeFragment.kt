@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ijlsa.poptoons.R
 import com.ijlsa.poptoons.ui.adapters.HomeCategoriesListAdapter
-import com.ijlsa.poptoons.ui.adapters.HomeListsAdapter
 import com.ijlsa.poptoons.ui.data.temp_data
 
 class HomeFragment : StepsBaseFragment() {

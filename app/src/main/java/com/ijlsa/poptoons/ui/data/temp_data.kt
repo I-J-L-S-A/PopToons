@@ -31,7 +31,7 @@ object temp_data {
         Serie(
             title = "CatDog",
             description = "Un gato y un perro siameses comparten el mismo cuerpo...",
-            imageUrl_Presentation = "http://cdn5.upsocl.com/wp-content/uploads/2018/07/Captura-de-pantalla-2017-07-10-a-las-9.14.57-a.m..jpg",
+            imageUrl_Presentation = "https://cdn5.upsocl.com/wp-content/uploads/2018/07/Captura-de-pantalla-2017-07-10-a-las-9.14.57-a.m..jpg",
             imageUrl_Preview = "https://images-ext-1.discordapp.net/external/YtNWpHqMdAoTKOfRQXCamVhtjlGaY86o6VS7upP5bQA/%3Fimage-profile%3Dimage_full%26io%3Dlandscape/https/10play.com.au/ip/s3/2021/04/27/4e06f398a94527274dbd4aa2267f5ee1-1051874.jpg",
             seasons = 4,
             episodes = mutableListOf(
@@ -45,7 +45,7 @@ object temp_data {
         Serie(
             title = "Laboratorio de Dexter",
             description = "Dexter es un pequeño superdotado...",
-            imageUrl_Presentation = "http://3.bp.blogspot.com/-cu0vowTIjn8/ToiDVtcZbJI/AAAAAAAAPYM/e1w1i4aJsrs/s1600/Dexter+Laboratory.jpg",
+            imageUrl_Presentation = "https://3.bp.blogspot.com/-cu0vowTIjn8/ToiDVtcZbJI/AAAAAAAAPYM/e1w1i4aJsrs/s1600/Dexter+Laboratory.jpg",
             imageUrl_Preview = "https://media.discordapp.net/attachments/897213665294581831/897221709512466472/tileburnedin.png",
             seasons = 4,
             episodes = mutableListOf(

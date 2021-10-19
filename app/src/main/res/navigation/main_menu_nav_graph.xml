@@ -29,7 +29,7 @@
         android:name="com.ijlsa.poptoons.ui.fragments.SerieDetailsFragment"
         android:label="SerieDetailsFragment" >
         <argument
-            android:name="Serie"
+            android:name="serie"
             app:argType="com.ijlsa.poptoons.ui.model.Serie" />
     </fragment>
 </navigation>

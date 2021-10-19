@@ -19,7 +19,7 @@
         app:navGraph="@navigation/main_menu_nav_graph" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/ivSettings"
         android:layout_width="81dp"
         android:layout_height="62dp"
         app:layout_constraintBottom_toTopOf="@+id/nav_host_fragment_container2"

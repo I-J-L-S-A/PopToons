@@ -10,16 +10,22 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.ijlsa.poptoons.R
+import com.ijlsa.poptoons.ui.interfaces.OnSerieClickListener
 import com.ijlsa.poptoons.ui.model.Serie
 
 class HomeListsAdapter : RecyclerView.Adapter<HomeSeriesListViewH>() {
 
-    val elementList: MutableList<Serie> = mutableListOf()
+    private val elementList: MutableList<Serie> = mutableListOf()
+    private var onSerieClickListener: ((serie: Serie) -> Unit)? = null
 
     fun addAll(newElementList: MutableList<Serie>) {
         elementList.clear()
         elementList.addAll(newElementList)
         notifyDataSetChanged()
+    }
+
+    fun setOnSerieClickListener(onSerieClickListener: ((serie: Serie) -> Unit)?){
+        this.onSerieClickListener = onSerieClickListener
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeSeriesListViewH {
@@ -30,6 +36,9 @@ class HomeListsAdapter : RecyclerView.Adapter<HomeSeriesListViewH>() {
 
     override fun onBindViewHolder(holder: HomeSeriesListViewH, position: Int) {
         holder.bind(elementList[position])
+        holder.itemView.setOnClickListener{
+            onSerieClickListener?.invoke(elementList[position])
+        }
     }
 
     override fun getItemCount(): Int {
@@ -38,7 +47,7 @@ class HomeListsAdapter : RecyclerView.Adapter<HomeSeriesListViewH>() {
 
 }
 
-class HomeSeriesListViewH(val itemView: View) : RecyclerView.ViewHolder(itemView) {
+class HomeSeriesListViewH(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     private val ivImageSerie = itemView.findViewById<ImageView>(R.id.ivImageSerie)
     private val tvTitleSerie = itemView.findViewById<TextView>(R.id.tvTitleSerie)

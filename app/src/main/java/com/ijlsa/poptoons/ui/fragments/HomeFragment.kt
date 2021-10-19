@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ijlsa.poptoons.R
@@ -13,7 +14,7 @@ import com.ijlsa.poptoons.ui.data.temp_data
 
 class HomeFragment : StepsBaseFragment() {
 
-    private val homeAdapter = HomeCategoriesListAdapter()
+    private val homeAdapter = HomeCategoriesListAdapter(this)
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -31,5 +32,8 @@ class HomeFragment : StepsBaseFragment() {
             LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
 
         homeAdapter.addAll(temp_data.categoriesList)
+        //homeAdapter.setOnSeriesItemClickListener{
+        //    findNavController().navigate(R.id.action_homeFragment_to_serieDetailsFragment)
+        //}
     }
 }

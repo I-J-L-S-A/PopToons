@@ -10,4 +10,6 @@
     <string name="item_Profile">Profile</string>
     <string name="item_home">Home</string>
     <string name="item_Search">Search</string>
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

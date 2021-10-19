@@ -34,5 +34,6 @@ class HomeFragment : StepsBaseFragment() {
         //homeAdapter.setOnSeriesItemClickListener{
         //    findNavController().navigate(R.id.action_homeFragment_to_serieDetailsFragment)
         //}
+
     }
 }

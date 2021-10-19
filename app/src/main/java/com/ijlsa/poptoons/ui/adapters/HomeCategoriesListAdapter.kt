@@ -53,6 +53,10 @@ class HomeCategoriesListViewH(itemView: View, private val parentFragment: Fragme
     fun bind(category: String) {
 
         tvCategory.text = category.toString()
+        tvCategory.setOnClickListener{
+            val directions = HomeFragmentDirections.actionHomeFragmentToCategoryFragment()
+            parentFragment.findNavController().navigate(directions)
+        }
         recyclerView.adapter = seriesAdapter
         recyclerView.layoutManager =
             LinearLayoutManager(itemView.context, LinearLayoutManager.HORIZONTAL, false)

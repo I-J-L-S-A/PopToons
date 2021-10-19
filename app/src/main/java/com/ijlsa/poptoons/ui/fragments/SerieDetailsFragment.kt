@@ -11,12 +11,12 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.ijlsa.poptoons.R
-import com.ijlsa.poptoons.ui.model.Serie
+import com.ijlsa.poptoons.ui.model.Series
 
 class SerieDetailsFragment : StepsBaseFragment() {
 
     val args: SerieDetailsFragmentArgs by navArgs()
-    lateinit var mySerie : Serie
+    lateinit var mySerie : Series
 
     override fun onCreateView(
         inflater: LayoutInflater,

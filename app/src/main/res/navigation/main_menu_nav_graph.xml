@@ -18,6 +18,9 @@
         <action
             android:id="@+id/action_homeFragment_to_serieDetailsFragment"
             app:destination="@id/serieDetailsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_categoryFragment"
+            app:destination="@id/categoryFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
@@ -30,6 +33,10 @@
         android:label="SerieDetailsFragment" >
         <argument
             android:name="serie"
-            app:argType="com.ijlsa.poptoons.ui.model.Serie" />
+            app:argType="com.ijlsa.poptoons.ui.model.Series" />
     </fragment>
+    <fragment
+        android:id="@+id/categoryFragment"
+        android:name="com.ijlsa.poptoons.ui.fragments.CategoryFragment"
+        android:label="CategoryFragment" />
 </navigation>

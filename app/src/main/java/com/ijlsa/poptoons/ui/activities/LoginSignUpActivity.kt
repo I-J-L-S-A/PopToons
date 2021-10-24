@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.ijlsa.poptoons.R
+import com.ijlsa.poptoons.databinding.ActivityLoginSignUpBinding
 import com.ijlsa.poptoons.ui.fragments.LoginFragment
 import com.ijlsa.poptoons.ui.fragments.SignUpFragment
 import com.ijlsa.poptoons.ui.replaceFragment
@@ -11,14 +12,16 @@ import com.ijlsa.poptoons.ui.replaceFragment
 
 class LoginSignUpActivity : AppCompatActivity() {
 
-    lateinit var extra : Bundle
+    private lateinit var binding: ActivityLoginSignUpBinding
+    private lateinit var extra : Bundle
 
-    val loginFragment = LoginFragment()
-    val signUpFragment = SignUpFragment()
+    private val loginFragment = LoginFragment()
+    private val signUpFragment = SignUpFragment()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login_sign_up)
+        binding = ActivityLoginSignUpBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         supportActionBar?.hide()
         extra = intent.extras!!
         val valor = extra.getString("fragment")

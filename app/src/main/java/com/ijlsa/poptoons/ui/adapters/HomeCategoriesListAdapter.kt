@@ -9,6 +9,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ijlsa.poptoons.R
+import com.ijlsa.poptoons.databinding.HomeCategoriesListBinding
 import com.ijlsa.poptoons.ui.data.temp_data
 import com.ijlsa.poptoons.ui.fragments.HomeFragmentDirections
 import com.ijlsa.poptoons.ui.model.Series
@@ -26,9 +27,8 @@ class HomeCategoriesListAdapter(private val parentFragment: Fragment) : Recycler
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeCategoriesListViewH {
-        val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.home_categories_list, parent, false)
-        return HomeCategoriesListViewH(view, parentFragment)
+        val binding = HomeCategoriesListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return HomeCategoriesListViewH(binding, parentFragment)
     }
 
     override fun onBindViewHolder(holder: HomeCategoriesListViewH, position: Int) {
@@ -44,21 +44,19 @@ class HomeCategoriesListAdapter(private val parentFragment: Fragment) : Recycler
     }
 }
 
-class HomeCategoriesListViewH(itemView: View, private val parentFragment: Fragment) : RecyclerView.ViewHolder(itemView) {
+class HomeCategoriesListViewH(val binding: HomeCategoriesListBinding, private val parentFragment: Fragment) : RecyclerView.ViewHolder(binding.root) {
 
-    private val tvCategory = itemView.findViewById<TextView>(R.id.tvCategorie)
-    private val recyclerView = itemView.findViewById<RecyclerView>(R.id.tvSeriesList)
     private val seriesAdapter = HomeSeriesListsAdapter()
 
     fun bind(category: String) {
 
-        tvCategory.text = category.toString()
-        tvCategory.setOnClickListener{
+        binding.tvCategory.text = category.toString()
+        binding.tvCategory.setOnClickListener{
             val directions = HomeFragmentDirections.actionHomeFragmentToCategoryFragment()
             parentFragment.findNavController().navigate(directions)
         }
-        recyclerView.adapter = seriesAdapter
-        recyclerView.layoutManager =
+        binding.tvSeriesList.adapter = seriesAdapter
+        binding.tvSeriesList.layoutManager =
             LinearLayoutManager(itemView.context, LinearLayoutManager.HORIZONTAL, false)
 
         seriesAdapter.addAll(listOfCategorySeries(category, temp_data.seriesList))

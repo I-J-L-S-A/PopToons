@@ -8,20 +8,23 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ijlsa.poptoons.R
+import com.ijlsa.poptoons.databinding.FragmentCategoryBinding
+import com.ijlsa.poptoons.databinding.FragmentHomeBinding
 import com.ijlsa.poptoons.ui.adapters.HomeCategoriesListAdapter
 import com.ijlsa.poptoons.ui.data.temp_data
 
 class HomeFragment : StepsBaseFragment() {
 
     private val homeAdapter = HomeCategoriesListAdapter(this)
+    private lateinit var binding: FragmentHomeBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_home, container, false)
-        return view
+        binding = FragmentHomeBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

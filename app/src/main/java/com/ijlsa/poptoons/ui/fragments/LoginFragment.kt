@@ -8,31 +8,31 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
 import com.ijlsa.poptoons.R
+import com.ijlsa.poptoons.databinding.FragmentCategoryBinding
+import com.ijlsa.poptoons.databinding.FragmentLoginBinding
 import com.ijlsa.poptoons.ui.activities.MainMenuActivity
 import com.ijlsa.poptoons.ui.interfaces.OnActionCompleteListener
 
 class LoginFragment: StepsBaseFragment() {
     private lateinit var buttonLogin: Button
+    private lateinit var binding: FragmentLoginBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val view = inflater.inflate(R.layout.fragment_login, container, false)
-        //view.background.alpha = 0
-        return view
+        binding = FragmentLoginBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        buttonLogin = view.findViewById(R.id.loginButton)
-        buttonLogin.setOnClickListener {
+        binding.loginButton.setOnClickListener{
             val intent = Intent(activity, MainMenuActivity::class.java)
             startActivity(intent)
             //Pasar datos de login a otra funcion
             activity?.finish()
         }
-
 
     }
 }

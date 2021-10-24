@@ -11,27 +11,27 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.ijlsa.poptoons.R
+import com.ijlsa.poptoons.databinding.ActivityMainMenuBinding
 
 class MainMenuActivity : AppCompatActivity() {
 
-    private lateinit var bottomMenu: BottomNavigationView
-
+    private lateinit var binding: ActivityMainMenuBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main_menu)
+        binding = ActivityMainMenuBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         supportActionBar?.hide()
 
-        bottomMenu = findViewById(R.id.bottom_menu)
-        bottomMenu.itemIconTintList = null
+        binding.bottomMenu.itemIconTintList = null
 
-
+        //TODO
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment_container) as NavHostFragment
 
         val navController = navHostFragment.navController
 
-        bottomMenu.setupWithNavController(navController)
+        binding.bottomMenu.setupWithNavController(navController)
 
 
         //val buttonLogin = findViewById<Button>(R.id.buttonLoginMainMenu)

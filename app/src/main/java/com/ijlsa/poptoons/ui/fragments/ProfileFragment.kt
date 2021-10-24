@@ -5,14 +5,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.ijlsa.poptoons.R
+import com.ijlsa.poptoons.databinding.FragmentCategoryBinding
+import com.ijlsa.poptoons.databinding.FragmentProfileBinding
 
 class ProfileFragment: StepsBaseFragment() {
+
+    private lateinit var binding: FragmentProfileBinding
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_profile, container, false)
-        return  view
+        binding = FragmentProfileBinding.inflate(inflater, container, false)
+        return binding.root
     }
 }

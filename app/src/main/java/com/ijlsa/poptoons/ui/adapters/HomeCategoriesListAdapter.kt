@@ -1,25 +1,23 @@
 package com.ijlsa.poptoons.ui.adapters
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.ijlsa.poptoons.R
 import com.ijlsa.poptoons.databinding.HomeCategoriesListBinding
-import com.ijlsa.poptoons.ui.data.temp_data
+import com.ijlsa.poptoons.ui.data.SerieDataSource
 import com.ijlsa.poptoons.ui.fragments.HomeFragmentDirections
+import com.ijlsa.poptoons.ui.model.Categories
 import com.ijlsa.poptoons.ui.model.Series
 
 class HomeCategoriesListAdapter(private val parentFragment: Fragment) : RecyclerView.Adapter<HomeCategoriesListViewH>() {
 
-    private val elementList: MutableList<String> = mutableListOf()
+    private val elementList: MutableList<Categories> = mutableListOf()
     private var onSerieItemClickListener: (() -> Unit)? = null
 
-    fun addAll(newElementList: MutableList<String>) {
+    fun addAll(newElementList: List<Categories>) {
         elementList.clear()
         elementList.addAll(newElementList)
         notifyDataSetChanged()
@@ -48,18 +46,18 @@ class HomeCategoriesListViewH(val binding: HomeCategoriesListBinding, private va
 
     private val seriesAdapter = HomeSeriesListsAdapter()
 
-    fun bind(category: String) {
+    fun bind(category: Categories) {
 
         binding.tvCategory.text = category.toString()
         binding.tvCategory.setOnClickListener{
-            val directions = HomeFragmentDirections.actionHomeFragmentToCategoryFragment()
+            val directions = HomeFragmentDirections.actionHomeFragmentToCategoryFragment(category)
             parentFragment.findNavController().navigate(directions)
         }
         binding.tvSeriesList.adapter = seriesAdapter
         binding.tvSeriesList.layoutManager =
             LinearLayoutManager(itemView.context, LinearLayoutManager.HORIZONTAL, false)
 
-        seriesAdapter.addAll(listOfCategorySeries(category, temp_data.seriesList))
+        seriesAdapter.addAll(listOfCategorySeries(category, SerieDataSource.getSeries()))
         seriesAdapter.setOnSerieClickListener{
             val directions = HomeFragmentDirections.actionHomeFragmentToSerieDetailsFragment(it)
             parentFragment.findNavController().navigate(directions)
@@ -68,9 +66,9 @@ class HomeCategoriesListViewH(val binding: HomeCategoriesListBinding, private va
     }
 
     private fun listOfCategorySeries(
-        category: String,
-        seriesList: MutableList<Series>
-    ): MutableList<Series> {
+        category: Categories,
+        seriesList: List<Series>
+    ): List<Series> {
 //        var newSeriesList = mutableListOf<Serie>()
 
 //        seriesList.forEach { serie ->

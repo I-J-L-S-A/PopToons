@@ -2,19 +2,11 @@ package com.ijlsa.poptoons.ui.data
 
 import com.ijlsa.poptoons.ui.model.Categories
 import com.ijlsa.poptoons.ui.model.Series
+import java.util.*
 
-object temp_data {
-    val categoriesList = mutableListOf(
-        "Comedia",
-        "Infantil",
-        "Aventura",
-        "Ciencia Ficcion",
-        "Humor Negro",
-        "90's",
-        "2000's",
-        "2010's"
-    )
-    val seriesList = mutableListOf(
+object SerieDataSource {
+
+    private var seriesList = mutableListOf(
         Series(
             title = "Bob Esponja",
             description = "Vive en una piña debajo del mar!",
@@ -26,7 +18,7 @@ object temp_data {
                 mutableListOf("Episodio 1", "Eposidio 2", "Episodio 3"),
                 mutableListOf("Episodio 1", "Eposidio 2")
             ),
-            genres = mutableListOf("Comedia", "Infantil"),//TODO cambiar por mutableListOf(Categories.Comedy, Categories.Child),
+            genres = mutableListOf(Categories.Comedy, Categories.Child),
             publication_year = 1999
         ),
         Series(
@@ -40,7 +32,7 @@ object temp_data {
                 mutableListOf("Episodio 1", "Eposidio 2", "Episodio 3"),
                 mutableListOf("Episodio 1", "Eposidio 2")
             ),
-            genres = mutableListOf("Comedia", "Humor Negro"),//TODO cambiar por mutableListOf(Categories.Comedy, Categories.DarkHumor),
+            genres = mutableListOf(Categories.Comedy, Categories.DarkHumor),
             publication_year = 2005
         ),
         Series(
@@ -54,7 +46,7 @@ object temp_data {
                 mutableListOf("Episodio 1", "Eposidio 2", "Episodio 3"),
                 mutableListOf("Episodio 1", "Eposidio 2")
             ),
-            genres = mutableListOf("Comedia", "Aventura", "Ciencia Ficcion", "Infantil"),//TODO cambiar por mutableListOf(Categories.Comedy, Categories.Adventure, Categories.ScienceFiction, Categories.Child),
+            genres = mutableListOf(Categories.Comedy, Categories.Adventure, Categories.ScienceFiction, Categories.Child),
             publication_year = 2003
         ),
         Series(
@@ -68,8 +60,22 @@ object temp_data {
                 mutableListOf("Episodio 1", "Eposidio 2", "Episodio 3"),
                 mutableListOf("Episodio 1", "Eposidio 2")
             ),
-            genres = mutableListOf("Comedia", "Aventura", "Ciencia Ficcion", "Humor Negro"),//TODO cambiar por mutableListOf(Categories.Comedy, Categories.Adventure, Categories.ScienceFiction, Categories.DarkHumor)
+            genres = mutableListOf(Categories.Comedy, Categories.Adventure, Categories.ScienceFiction, Categories.DarkHumor),
             publication_year = 2013
         )
     )
+
+    fun getSeries(): List<Series> {
+        return seriesList
+    }
+
+    fun setPostList(seriesList: List<Series>){
+        this.seriesList = seriesList.toMutableList()
+    }
+
+    fun searchSeries(query: String): List<Series>{
+        return seriesList.filter {
+            it.title.lowercase(Locale.getDefault()).contains(query.lowercase(Locale.getDefault()))
+        }
+    }
 }

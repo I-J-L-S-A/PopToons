@@ -18,7 +18,7 @@ class HomeSeriesListsAdapter : RecyclerView.Adapter<HomeSeriesListViewH>() {
     private val elementList: MutableList<Series> = mutableListOf()
     private var onSerieClickListener: ((serie: Series) -> Unit)? = null
 
-    fun addAll(newElementList: MutableList<Series>) {
+    fun addAll(newElementList: List<Series>) {
         elementList.clear()
         elementList.addAll(newElementList)
         notifyDataSetChanged()

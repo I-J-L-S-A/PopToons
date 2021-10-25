@@ -33,7 +33,11 @@
         android:id="@+id/profileFragment"
         android:name="com.ijlsa.poptoons.ui.fragments.ProfileFragment"
         android:label="ProfileFragment"
-        tools:layout="@layout/fragment_profile"/>
+        tools:layout="@layout/fragment_profile">
+        <action
+            android:id="@+id/action_profileFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/serieDetailsFragment"
         android:name="com.ijlsa.poptoons.ui.fragments.SerieDetailsFragment"
@@ -45,9 +49,17 @@
     <fragment
         android:id="@+id/categoryFragment"
         android:name="com.ijlsa.poptoons.ui.fragments.CategoryFragment"
+<<<<<<< HEAD
         android:label="CategoryFragment" >
         <argument
             android:name="category"
             app:argType="com.ijlsa.poptoons.ui.model.Categories" />
     </fragment>
+=======
+        android:label="CategoryFragment" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.ijlsa.poptoons.ui.fragments.SettingsFragment"
+        android:label="SettingsFragment" />
+>>>>>>> profile-fragment
 </navigation>

@@ -6,12 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import androidx.fragment.app.Fragment
+import android.widget.TextView
 import com.ijlsa.poptoons.R
 import com.ijlsa.poptoons.databinding.FragmentCategoryBinding
 import com.ijlsa.poptoons.databinding.FragmentLoginBinding
 import com.ijlsa.poptoons.ui.activities.MainMenuActivity
-import com.ijlsa.poptoons.ui.interfaces.OnActionCompleteListener
 
 class LoginFragment: StepsBaseFragment() {
     private lateinit var buttonLogin: Button
@@ -32,6 +31,13 @@ class LoginFragment: StepsBaseFragment() {
             startActivity(intent)
             //Pasar datos de login a otra funcion
             activity?.finish()
+        }
+        val signup = view.findViewById<TextView>(R.id.tvSignUp)
+        signup.setOnClickListener{
+            val ft = parentFragmentManager.beginTransaction()
+            ft.add(SignUpFragment(), "tagSignUp")
+            ft.addToBackStack("SignUp")
+            ft.commit()
         }
 
     }

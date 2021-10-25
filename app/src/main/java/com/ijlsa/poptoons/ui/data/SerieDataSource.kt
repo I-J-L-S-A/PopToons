@@ -2,7 +2,12 @@ package com.ijlsa.poptoons.ui.data
 
 import com.ijlsa.poptoons.ui.model.Categories
 import com.ijlsa.poptoons.ui.model.Series
+<<<<<<< HEAD:app/src/main/java/com/ijlsa/poptoons/ui/data/SerieDataSource.kt
 import java.util.*
+=======
+import com.ijlsa.poptoons.ui.model.User
+
+>>>>>>> profile-fragment:app/src/main/java/com/ijlsa/poptoons/ui/data/temp_data.kt
 
 object SerieDataSource {
 
@@ -64,6 +69,7 @@ object SerieDataSource {
             publication_year = 2013
         )
     )
+<<<<<<< HEAD:app/src/main/java/com/ijlsa/poptoons/ui/data/SerieDataSource.kt
 
     fun getSeries(): List<Series> {
         return seriesList
@@ -78,4 +84,7 @@ object SerieDataSource {
             it.title.lowercase(Locale.getDefault()).contains(query.lowercase(Locale.getDefault()))
         }
     }
+=======
+    val testUser: User = User("Juan", "juan@gmail.com", "sQnzu7wkTrgkQZF+0G1hi5AI3Qmzvv0bXgc5THBqi7mAsdd4Xll27ASbRt9fEyavWi6m0QP9B8lThf+rDKy8hg==")
+>>>>>>> profile-fragment:app/src/main/java/com/ijlsa/poptoons/ui/data/temp_data.kt
 }

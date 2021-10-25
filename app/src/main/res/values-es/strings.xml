@@ -7,4 +7,5 @@
     <string name="repeat_password">Repita Contraseña</string>
     <string name="terms_and_conditions">Acepto los términos y condiciones</string>
     <string name="forgot_password">¿Olvidaste tu contraseña?</string>
+    <string name="item_Search">Buscar</string>
 </resources>

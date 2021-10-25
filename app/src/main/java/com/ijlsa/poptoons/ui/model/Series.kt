@@ -9,4 +9,4 @@ data class Series (val title: String,
                    val seasons: Int,
                    val publication_year: Int,
                    val episodes: MutableList<MutableList<String>>,
-                   val genres: MutableList<String>): Serializable //TODO Cambiar por la clase enum Categories
+                   val genres: MutableList<Categories>): Serializable //TODO Cambiar por la clase enum Categories

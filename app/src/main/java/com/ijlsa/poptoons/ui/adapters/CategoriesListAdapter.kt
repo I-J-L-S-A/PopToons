@@ -17,7 +17,7 @@ class CategoriesListAdapter: RecyclerView.Adapter<CategoriesViewHolder>() {
 
     val elementList: MutableList<Series> = mutableListOf()
 
-    fun addAll(newElementList: MutableList<Series>) {
+    fun addAll(newElementList: List<Series>) {
         elementList.clear()
         elementList.addAll(newElementList)
         notifyDataSetChanged()

@@ -61,7 +61,7 @@ class SearchFragment: StepsBaseFragment() {
         seriesViewModel.series.observe(viewLifecycleOwner){
             seriesListAdapter.addAll(it)
         }
-        seriesViewModel.getSeries(requireContext())
+        //seriesViewModel.getSeries(requireContext())
 
 
         //TODO implementar un text watcher

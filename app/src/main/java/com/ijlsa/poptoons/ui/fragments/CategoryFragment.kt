@@ -29,7 +29,9 @@ class CategoryFragment: Fragment() {
         binding.rvCategory.adapter = categoryAdapter
         binding.rvCategory.layoutManager =
             GridLayoutManager(context, 2, GridLayoutManager.VERTICAL, false)
-        seriesViewModel.getSeries(requireContext())
-        categoryAdapter.addAll(seriesViewModel.series.value!!)
+        if(seriesViewModel.series.value != null){
+            categoryAdapter.addAll(seriesViewModel.series.value!!)
+        }
+
     }
 }

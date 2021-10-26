@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ijlsa.poptoons.databinding.FragmentHomeBinding
 import com.ijlsa.poptoons.ui.adapters.HomeCategoriesListAdapter
@@ -16,7 +17,7 @@ class HomeFragment : StepsBaseFragment() {
 
     private val homeAdapter = HomeCategoriesListAdapter(this)
     private lateinit var binding: FragmentHomeBinding
-    private val seriesViewModel: SeriesViewModel by activityViewModels()
+    private val seriesViewModel: SeriesViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -31,8 +32,13 @@ class HomeFragment : StepsBaseFragment() {
         binding.rvHome.adapter = homeAdapter
         binding.rvHome.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-        seriesViewModel.getSeries(requireContext())
-        homeAdapter.addAll(Categories.values().toList(), seriesViewModel.series.value!!)
+        /*if(seriesViewModel.series.value != null){
+            homeAdapter.addAll(Categories.values().toList(), seriesViewModel.series.value!!)
+        }*/
+        seriesViewModel.series.observe(viewLifecycleOwner){
+            homeAdapter.addAll(Categories.values().toList(),it)
+        }
+        //homeAdapter.addAll(Categories.values().toList(), seriesViewModel.series.value!!)
         //homeAdapter.setOnSeriesItemClickListener{
         //    findNavController().navigate(R.id.action_homeFragment_to_serieDetailsFragment)
         //}

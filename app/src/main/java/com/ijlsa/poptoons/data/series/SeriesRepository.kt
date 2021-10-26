@@ -1,6 +1,7 @@
 package com.ijlsa.poptoons.data.series
 
 import android.content.Context
+import com.ijlsa.poptoons.NetworkUtils
 import com.ijlsa.poptoons.data.series.network.SeriesNetworkController
 import com.ijlsa.poptoons.data.series.persistency.SeriesPersistencyController
 import com.ijlsa.poptoons.isNetworkConnected
@@ -11,11 +12,11 @@ import kotlinx.coroutines.flow.flow
 class SeriesRepository(val network: SeriesNetworkController,
                        val persistency: SeriesPersistencyController) {
 
-    fun getSeries(context: Context): Flow<List<Series>> {
+    fun getSeries(): Flow<List<Series>> {
         return flow {
             emit(persistency.getSeries())
             try {
-                if(isNetworkConnected(context)){
+                if(NetworkUtils.isOnline){
                     val series = network.getSeries()
                     persistency.saveSeries(series)
                     emit(series)

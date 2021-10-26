@@ -49,17 +49,13 @@
     <fragment
         android:id="@+id/categoryFragment"
         android:name="com.ijlsa.poptoons.ui.fragments.CategoryFragment"
-<<<<<<< HEAD
         android:label="CategoryFragment" >
         <argument
             android:name="category"
             app:argType="com.ijlsa.poptoons.ui.model.Categories" />
     </fragment>
-=======
-        android:label="CategoryFragment" />
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.ijlsa.poptoons.ui.fragments.SettingsFragment"
         android:label="SettingsFragment" />
->>>>>>> profile-fragment
 </navigation>

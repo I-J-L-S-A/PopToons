@@ -1,13 +1,28 @@
 package com.ijlsa.poptoons.ui.viewmodels
 
+import android.content.Context
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.ijlsa.poptoons.ui.data.SerieDataSource
+import com.ijlsa.poptoons.data.series.SeriesRepository
+import com.ijlsa.poptoons.data.series.network.SeriesNetworkControllerImp
+import com.ijlsa.poptoons.data.series.persistency.SeriesPersistencyControllerImp
+import com.ijlsa.poptoons.ui.model.Series
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 
 class SeriesViewModel : ViewModel() {
-    val filteredSeries = MutableLiveData(SerieDataSource.getSeries())
+    val seriesRepository = SeriesRepository(SeriesNetworkControllerImp(), SeriesPersistencyControllerImp())
+    val series = MutableLiveData<List<Series>>()
+
+    fun getSeries(context: Context){
+        seriesRepository.getSeries(context).onEach {
+            series.postValue(it)
+        }.launchIn(CoroutineScope(Dispatchers.IO))
+    }
 
     fun searchSerie(query: String){
-        filteredSeries.postValue(SerieDataSource.searchSeries(query))
+        series.postValue(seriesRepository.searchSeries(query))
     }
 }

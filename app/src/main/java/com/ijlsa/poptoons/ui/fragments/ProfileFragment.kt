@@ -9,12 +9,9 @@ import android.widget.Button
 import android.widget.ImageView
 import androidx.navigation.fragment.findNavController
 import com.ijlsa.poptoons.R
-<<<<<<< HEAD
-import com.ijlsa.poptoons.databinding.FragmentCategoryBinding
 import com.ijlsa.poptoons.databinding.FragmentProfileBinding
-=======
 import com.ijlsa.poptoons.ui.activities.LoginSignUpActivity
->>>>>>> profile-fragment
+
 
 class ProfileFragment: StepsBaseFragment() {
 

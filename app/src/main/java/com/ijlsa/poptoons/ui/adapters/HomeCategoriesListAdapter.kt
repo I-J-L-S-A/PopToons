@@ -28,11 +28,11 @@ class HomeCategoriesListAdapter(private val parentFragment: Fragment) : Recycler
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeCategoriesListViewH {
         val binding = HomeCategoriesListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return HomeCategoriesListViewH(binding, parentFragment, series)
+        return HomeCategoriesListViewH(binding, parentFragment)
     }
 
     override fun onBindViewHolder(holder: HomeCategoriesListViewH, position: Int) {
-        holder.bind(elementList[position])
+        holder.bind(elementList[position], this.series)
     }
 
     override fun getItemCount(): Int {
@@ -44,11 +44,11 @@ class HomeCategoriesListAdapter(private val parentFragment: Fragment) : Recycler
     }
 }
 
-class HomeCategoriesListViewH(val binding: HomeCategoriesListBinding, private val parentFragment: Fragment, private val series: List<Series>) : RecyclerView.ViewHolder(binding.root) {
+class HomeCategoriesListViewH(val binding: HomeCategoriesListBinding, private val parentFragment: Fragment) : RecyclerView.ViewHolder(binding.root) {
 
     private val seriesAdapter = HomeSeriesListsAdapter()
 
-    fun bind(category: Categories) {
+    fun bind(category: Categories, series: List<Series>) {
 
         binding.tvCategory.text = category.toString()
         binding.tvCategory.setOnClickListener{

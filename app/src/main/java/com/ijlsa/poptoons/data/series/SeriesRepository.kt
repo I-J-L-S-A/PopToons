@@ -14,6 +14,10 @@ class SeriesRepository(val network: SeriesNetworkController,
 
     fun getSeries(): Flow<List<Series>> {
         return flow {
+            val persistencyVar = persistency.getSeries()
+            /*if (persistencyVar.size > 0) {
+
+            }*/
             emit(persistency.getSeries())
             try {
                 if(NetworkUtils.isOnline){

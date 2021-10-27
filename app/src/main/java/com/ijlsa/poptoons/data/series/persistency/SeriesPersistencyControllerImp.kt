@@ -1,24 +1,24 @@
 package com.ijlsa.poptoons.data.series.persistency
 
+import com.ijlsa.poptoons.App
 import com.ijlsa.poptoons.ui.model.Categories
 import com.ijlsa.poptoons.ui.model.Series
 import java.util.*
 
 class SeriesPersistencyControllerImp: SeriesPersistencyController {
 
-    private var seriesList = mutableListOf<Series>()
+    private val db = App.db
 
     override fun getSeries(): List<Series> {
-        return seriesList
+        return db.seriesDao().getAllSeries()
+
     }
 
     override fun searchSeries(query: String): List<Series>{
-        return seriesList.filter {
-            it.title.lowercase(Locale.getDefault()).contains(query.lowercase(Locale.getDefault()))
-        }
+        return db.seriesDao().searchSeries(query)
     }
 
     override fun saveSeries(series: List<Series>) {
-        seriesList = series.toMutableList()
+        db.seriesDao().saveAllSeries(series)
     }
 }

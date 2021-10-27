@@ -13,12 +13,11 @@ class SeriesRepository(val network: SeriesNetworkController,
                        val persistency: SeriesPersistencyController) {
 
     fun getSeries(): Flow<List<Series>> {
-        return flow {
-            val persistencyVar = persistency.getSeries()
-            /*if (persistencyVar.size > 0) {
+        flow {
+            /*val persistencyVar = persistency.getSeries()
+            if (persistencyVar.size > 0) {
 
             }*/
-            emit(persistency.getSeries())
             try {
                 if(NetworkUtils.isOnline){
                     val series = network.getSeries()
@@ -29,6 +28,8 @@ class SeriesRepository(val network: SeriesNetworkController,
 
             }
         }
+
+        return persistency.getSeries()
     }
 
     fun searchSeries(query: String): List<Series>{

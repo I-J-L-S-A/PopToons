@@ -4,12 +4,13 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 import com.ijlsa.poptoons.ui.model.Series
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface SeriesDao {
 
     @Query("SELECT * FROM series")
-    fun getAllSeries(): List<Series>
+    fun getAllSeries(): Flow<List<Series>>
 
     @Insert
     fun saveAllSeries(Series: List<Series>)

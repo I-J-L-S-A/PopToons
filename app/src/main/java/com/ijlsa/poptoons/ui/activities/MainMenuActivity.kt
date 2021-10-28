@@ -10,6 +10,7 @@ import androidx.annotation.StyleRes
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.ijlsa.poptoons.NetworkUtils
 import com.ijlsa.poptoons.R
 import com.ijlsa.poptoons.databinding.ActivityMainMenuBinding
 
@@ -37,10 +38,12 @@ class MainMenuActivity : AppCompatActivity() {
         //val buttonLogin = findViewById<Button>(R.id.buttonLoginMainMenu)
         //val buttonSignUp = findViewById<Button>(R.id.buttonSignUpMainMenu)
 
+        NetworkUtils.updateIsOnline(this)
+
 
     }
 
-    fun loginSignUpMenu(view: View) {
+    /*fun loginSignUpMenu(view: View) {
         val intent = Intent(this, LoginSignUpActivity::class.java)
         if (view.id == R.id.buttonLoginMainMenu) {
             intent.putExtra("fragment", "login")
@@ -48,5 +51,5 @@ class MainMenuActivity : AppCompatActivity() {
             intent.putExtra("fragment", "signup")
         }
         startActivity(intent)
-    }
+    }*/
 }

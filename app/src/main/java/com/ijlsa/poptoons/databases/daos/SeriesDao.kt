@@ -13,7 +13,7 @@ interface SeriesDao {
     fun getAllSeries(): Flow<List<Series>>
 
     @Insert
-    fun saveAllSeries(Series: List<Series>)
+    fun saveAllSeries(series: List<Series>)
 
     @Query("SELECT * FROM series WHERE title LIKE :query")
     fun searchSeries(query: String): List<Series>

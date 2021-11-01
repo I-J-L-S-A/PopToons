@@ -6,7 +6,7 @@ import java.io.Serializable
 
 @Entity
 data class Episodes (@PrimaryKey val id: Int,
-                   val serieId: Int,
+                     val serieId: Int,
                      val numSeason :Int,
-                   val eTitle: String,
-                   val status: String): Serializable
+                     val eTitle: String,
+                     val status: String): Serializable

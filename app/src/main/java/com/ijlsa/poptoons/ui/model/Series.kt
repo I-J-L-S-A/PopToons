@@ -12,4 +12,4 @@ data class Series (@PrimaryKey val id: Int,
                    val description: String,
                    val seasons: MutableList<MutableList<Episodes>>, // TODO ARREGLAR ENTRADA/TABLA EN -RED NODE(?-
                    val publication_year: Int,
-                   val genres: MutableList<Categories>): Serializable //TODO Cambiar por la clase enum Categories
+                   val genres: MutableList<Categories>): Serializable

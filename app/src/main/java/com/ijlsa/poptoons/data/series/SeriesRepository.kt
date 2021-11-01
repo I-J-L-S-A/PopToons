@@ -14,10 +14,6 @@ class SeriesRepository(val network: SeriesNetworkController,
 
     fun getSeries(): Flow<List<Series>> {
         flow {
-            /*val persistencyVar = persistency.getSeries()
-            if (persistencyVar.size > 0) {
-
-            }*/
             try {
                 if(NetworkUtils.isOnline){
                     val series = network.getSeries()
@@ -25,10 +21,8 @@ class SeriesRepository(val network: SeriesNetworkController,
                     emit(series)
                 }
             } catch (e: Exception) {
-
             }
         }
-
         return persistency.getSeries()
     }
 

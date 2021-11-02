@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.Flow
 interface SeriesDao {
 
     @Query("SELECT * FROM series")
-    fun getAllSeries(): Flow<List<Series>>
+    fun getAllSeries(): List<Series>
 
     @Insert
     fun saveAllSeries(series: List<Series>)

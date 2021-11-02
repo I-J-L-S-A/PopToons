@@ -12,7 +12,7 @@ class SeriesPersistencyControllerImp: SeriesPersistencyController {
         return db.seriesDao().getAllSeries()
     }
 
-    override fun searchSeries(query: String): List<Series>{
+    override fun searchSeries(query: String): Flow<List<Series>>{
         return db.seriesDao().searchSeries(query)
     }
 

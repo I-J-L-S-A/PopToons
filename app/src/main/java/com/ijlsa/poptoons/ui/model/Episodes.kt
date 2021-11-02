@@ -1,12 +1,12 @@
 package com.ijlsa.poptoons.ui.model
 
-import androidx.room.Entity
-import androidx.room.PrimaryKey
+
+import java.io.FileDescriptor
 import java.io.Serializable
 
-@Entity
-data class Episodes (@PrimaryKey val id: Int,
-                     val serieId: Int,
-                     val numSeason :Int,
+data class Episodes (val numSeason :Int,
+                     val numEpisodio:Int,
                      val eTitle: String,
-                     val status: String): Serializable
+                     val duration: String,
+                     val description: String
+                     /*val status: Boolean*/): Serializable

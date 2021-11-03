@@ -32,7 +32,6 @@ class SerieDetailsFragment : StepsBaseFragment() {
     lateinit var mySerie : Series
     private lateinit var binding: FragmentSerieDetailsBinding
     private val serieDetailViewModel: SerieDetailViewModel by viewModels()
-    var isFavorite = false
     private val seasonsAdapter = SeasonsAdapter(this)
     private val seriesViewModel: SeriesViewModel by viewModels()
 
@@ -57,21 +56,20 @@ class SerieDetailsFragment : StepsBaseFragment() {
         binding.tvSinopsis.text = mySerie.description
 
         serieDetailViewModel.favorite.observe(viewLifecycleOwner){
-            isFavorite = it != null
-            if(isFavorite){
-                binding.buttonFavorite.text = "ES FAVORITO"
+            if(it != null){
+                binding.buttonFavorite.setImageResource(R.drawable.star)
             } else {
-                binding.buttonFavorite.text = "NO ES FAVORITO"
+                binding.buttonFavorite.setImageResource(R.drawable.emptystar)
             }
         }
 
         serieDetailViewModel.getFavoriteBySerieId(mySerie.id)
 
         binding.buttonFavorite.setOnClickListener{
-            if(isFavorite){
+            if(serieDetailViewModel.favorite.value != null){
                 serieDetailViewModel.deleteFavorite(serieDetailViewModel.favorite.value!!)
             } else {
-                serieDetailViewModel.saveFavorite(Favorite(1, mySerie.id, System.currentTimeMillis().toString()))
+                serieDetailViewModel.saveFavorite(Favorite(0, mySerie.id, System.currentTimeMillis().toString()))
             }
         }
         binding.tvDetNTemp.text = "Temporadas disponibles: " + mySerie.seasons.size

@@ -8,6 +8,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearSnapHelper
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
@@ -19,6 +21,10 @@ import com.ijlsa.poptoons.ui.model.Series
 import com.ijlsa.poptoons.ui.viewmodels.SerieDetailViewModel
 import com.ijlsa.poptoons.ui.viewmodels.SeriesViewModel
 import java.util.*
+import com.ijlsa.poptoons.ui.adapters.HomeCategoriesListAdapter
+import com.ijlsa.poptoons.ui.adapters.SeasonsAdapter
+import com.ijlsa.poptoons.ui.model.Categories
+
 
 class SerieDetailsFragment : StepsBaseFragment() {
 
@@ -27,6 +33,8 @@ class SerieDetailsFragment : StepsBaseFragment() {
     private lateinit var binding: FragmentSerieDetailsBinding
     private val serieDetailViewModel: SerieDetailViewModel by viewModels()
     var isFavorite = false
+    private val seasonsAdapter = SeasonsAdapter(this)
+    private val seriesViewModel: SeriesViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -45,7 +53,7 @@ class SerieDetailsFragment : StepsBaseFragment() {
             .transform(CenterCrop(), RoundedCorners(25))
             .into(binding.tvImageSerie)
         binding.tvTitleSerie.text = mySerie.title
-        binding.tvSeasonsNumber.text = mySerie.seasons.toString()
+        //binding.tvSeasonsNumber.text = mySerie.seasons.toString()
         binding.tvSinopsis.text = mySerie.description
 
         serieDetailViewModel.favorite.observe(viewLifecycleOwner){
@@ -66,5 +74,12 @@ class SerieDetailsFragment : StepsBaseFragment() {
                 serieDetailViewModel.saveFavorite(Favorite(1, mySerie.id, System.currentTimeMillis().toString()))
             }
         }
+        binding.tvDetNTemp.text = "Temporadas disponibles: " + mySerie.seasons.size
+        binding.rvSeasons.adapter = seasonsAdapter
+        binding.rvSeasons.layoutManager =
+            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        seasonsAdapter.addAll(mySerie.seasons)
+        LinearSnapHelper().attachToRecyclerView(binding.rvSeasons)
+
     }
 }

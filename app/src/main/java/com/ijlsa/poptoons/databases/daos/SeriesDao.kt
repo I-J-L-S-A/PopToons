@@ -10,11 +10,11 @@ import kotlinx.coroutines.flow.Flow
 interface SeriesDao {
 
     @Query("SELECT * FROM series")
-    fun getAllSeries(): Flow<List<Series>>
+    fun getAllSeries(): List<Series>
 
     @Insert
     fun saveAllSeries(series: List<Series>)
 
     @Query("SELECT * FROM series WHERE title LIKE :query")
-    fun searchSeries(query: String): List<Series>
+    fun searchSeries(query: String): Flow<List<Series>>
 }

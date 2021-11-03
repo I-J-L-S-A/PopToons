@@ -7,7 +7,7 @@ import retrofit2.create
 
 class SeriesNetworkControllerImp: SeriesNetworkController{
     val client = Retrofit.Builder()
-        .baseUrl("http://26.186.103.85:1880")
+        .baseUrl("http://192.168.1.10:1880")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
         .create(SeriesAPI::class.java)

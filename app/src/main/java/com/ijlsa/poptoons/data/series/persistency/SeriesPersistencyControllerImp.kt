@@ -8,11 +8,11 @@ class SeriesPersistencyControllerImp: SeriesPersistencyController {
 
     private val db = App.db
 
-    override fun getSeries(): Flow<List<Series>> {
+    override fun getSeries(): List<Series> {
         return db.seriesDao().getAllSeries()
     }
 
-    override fun searchSeries(query: String): List<Series>{
+    override fun searchSeries(query: String): Flow<List<Series>>{
         return db.seriesDao().searchSeries(query)
     }
 

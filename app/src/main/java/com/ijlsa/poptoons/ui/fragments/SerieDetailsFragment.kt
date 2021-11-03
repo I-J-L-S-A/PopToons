@@ -16,17 +16,22 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.ijlsa.poptoons.R
 import com.ijlsa.poptoons.databinding.FragmentCategoryBinding
 import com.ijlsa.poptoons.databinding.FragmentSerieDetailsBinding
+import com.ijlsa.poptoons.ui.model.Favorite
+import com.ijlsa.poptoons.ui.model.Series
+import com.ijlsa.poptoons.ui.viewmodels.SerieDetailViewModel
+import com.ijlsa.poptoons.ui.viewmodels.SeriesViewModel
+import java.util.*
 import com.ijlsa.poptoons.ui.adapters.HomeCategoriesListAdapter
 import com.ijlsa.poptoons.ui.adapters.SeasonsAdapter
 import com.ijlsa.poptoons.ui.model.Categories
-import com.ijlsa.poptoons.ui.model.Series
-import com.ijlsa.poptoons.ui.viewmodels.SeriesViewModel
+
 
 class SerieDetailsFragment : StepsBaseFragment() {
 
     val args: SerieDetailsFragmentArgs by navArgs()
     lateinit var mySerie : Series
     private lateinit var binding: FragmentSerieDetailsBinding
+    private val serieDetailViewModel: SerieDetailViewModel by viewModels()
     private val seasonsAdapter = SeasonsAdapter(this)
     private val seriesViewModel: SeriesViewModel by viewModels()
 
@@ -49,6 +54,24 @@ class SerieDetailsFragment : StepsBaseFragment() {
         binding.tvTitleSerie.text = mySerie.title
         //binding.tvSeasonsNumber.text = mySerie.seasons.toString()
         binding.tvSinopsis.text = mySerie.description
+
+        serieDetailViewModel.favorite.observe(viewLifecycleOwner){
+            if(it != null){
+                binding.buttonFavorite.setImageResource(R.drawable.star)
+            } else {
+                binding.buttonFavorite.setImageResource(R.drawable.emptystar)
+            }
+        }
+
+        serieDetailViewModel.getFavoriteBySerieId(mySerie.id)
+
+        binding.buttonFavorite.setOnClickListener{
+            if(serieDetailViewModel.favorite.value != null){
+                serieDetailViewModel.deleteFavorite(serieDetailViewModel.favorite.value!!)
+            } else {
+                serieDetailViewModel.saveFavorite(Favorite(0, mySerie.id, System.currentTimeMillis().toString()))
+            }
+        }
         binding.tvDetNTemp.text = "Temporadas disponibles: " + mySerie.seasons.size
         binding.rvSeasons.adapter = seasonsAdapter
         binding.rvSeasons.layoutManager =

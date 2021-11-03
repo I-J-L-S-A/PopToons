@@ -18,7 +18,7 @@
             android:id="@+id/searchToolbar"
             android:layout_width="222dp"
             android:layout_height="48dp"
-            android:background="?attr/colorBackgroundFloating"
+            android:background="@color/menuColors"
             android:minHeight="?attr/actionBarSize"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

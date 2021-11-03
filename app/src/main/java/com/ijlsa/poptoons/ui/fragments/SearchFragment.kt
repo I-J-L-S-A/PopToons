@@ -6,23 +6,18 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.ijlsa.poptoons.R
-import com.ijlsa.poptoons.databinding.FragmentCategoryBinding
 import com.ijlsa.poptoons.databinding.FragmentSearchBinding
-import com.ijlsa.poptoons.ui.adapters.HomeCategoriesListAdapter
 import com.ijlsa.poptoons.ui.adapters.HomeSeriesListsAdapter
 import com.ijlsa.poptoons.ui.adapters.SearchPageCategoriesListAdapter
 import com.ijlsa.poptoons.ui.model.Categories
 import com.ijlsa.poptoons.ui.viewmodels.SearchViewModel
 import com.ijlsa.poptoons.ui.viewmodels.SeriesViewModel
-import org.w3c.dom.Text
 
-class SearchFragment: StepsBaseFragment() {
+class SearchFragment : StepsBaseFragment() {
 
     private lateinit var binding: FragmentSearchBinding
     private val seriesListAdapter = HomeSeriesListsAdapter()
@@ -44,13 +39,15 @@ class SearchFragment: StepsBaseFragment() {
         binding.seriesResult.adapter = seriesListAdapter
         binding.categoriesList.adapter = categoriesListAdapter
 
-        binding.seriesResult.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        binding.seriesResult.layoutManager =
+            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         seriesListAdapter.setOnSerieClickListener {
             val directions = SearchFragmentDirections.actionSearchFragmentToSerieDetailsFragment(it)
             findNavController().navigate(directions)
         }
 
-        binding.categoriesList.layoutManager = GridLayoutManager(context, 2, GridLayoutManager.VERTICAL, false)
+        binding.categoriesList.layoutManager =
+            GridLayoutManager(context, 2, GridLayoutManager.VERTICAL, false)
         categoriesListAdapter.setOnCategoryItemClickListener {
             val directions = SearchFragmentDirections.actionSearchFragmentToCategoryFragment(it)
             findNavController().navigate(directions)
@@ -58,7 +55,7 @@ class SearchFragment: StepsBaseFragment() {
 
         categoriesListAdapter.addAll(Categories.values().toList())
 
-        seriesViewModel.series.observe(viewLifecycleOwner){
+        seriesViewModel.series.observe(viewLifecycleOwner) {
             seriesListAdapter.addAll(it)
         }
         //seriesViewModel.getSeries(requireContext())
@@ -68,14 +65,16 @@ class SearchFragment: StepsBaseFragment() {
         val textWatcher = object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
             }
+
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
             }
+
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 //searchViewModel.searchStarted.postValue( s != null && s.isNotEmpty())
-                if(!s.isNullOrEmpty()){
-                    binding.seriesResult.visibility=View.VISIBLE
+                if (!s.isNullOrEmpty()) {
+                    binding.seriesResult.visibility = View.VISIBLE
                 } else {
-                    binding.seriesResult.visibility=View.GONE
+                    binding.seriesResult.visibility = View.GONE
                 }
                 seriesViewModel.searchSerie(s.toString())
             }

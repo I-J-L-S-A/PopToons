@@ -58,32 +58,9 @@ class HomeSeriesListViewH(val binding: HomeItemListBinding) : RecyclerView.ViewH
     fun bind(series: Series) {
         binding.tvTitleSerie.text = series.title
 
-        Glide.with(binding.root.context)
+        Glide.with(itemView)
             .load(series.imageUrl_Preview)
             .transform(CenterCrop(), RoundedCorners(27))
-            .addListener(object: RequestListener<Drawable>{
-                override fun onLoadFailed(
-                    e: GlideException?,
-                    model: Any?,
-                    target: Target<Drawable>?,
-                    isFirstResource: Boolean
-                ): Boolean {
-                    Log.e("Error Glide", e!!.message!!)
-                    e.printStackTrace()
-                    return true
-                }
-
-                override fun onResourceReady(
-                    resource: Drawable?,
-                    model: Any?,
-                    target: Target<Drawable>?,
-                    dataSource: DataSource?,
-                    isFirstResource: Boolean
-                ): Boolean {
-                    return true
-                }
-
-            })
             .into(binding.ivImageSerie)
     }
 }

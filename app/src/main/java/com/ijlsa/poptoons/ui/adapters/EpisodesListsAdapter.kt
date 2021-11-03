@@ -44,7 +44,8 @@ class EpisodesListViewH(val binding: DetailsEpisodeItemBinding) : RecyclerView.V
 
 
     fun bind(episode: Episodes) {
-        binding.tvnumEp.text = "Episodio " + episode.numEpisodio
+        val num:Int  = episode.numEpisode
+        binding.tvnumEp.text = "Episodio $num"
         binding.tvTitleEp.text = episode.eTitle
         binding.tvDuration.text = episode.duration
     }

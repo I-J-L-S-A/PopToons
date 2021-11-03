@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearSnapHelper
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
@@ -53,6 +54,7 @@ class SerieDetailsFragment : StepsBaseFragment() {
         binding.rvSeasons.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         seasonsAdapter.addAll(mySerie.seasons)
+        LinearSnapHelper().attachToRecyclerView(binding.rvSeasons)
 
     }
 }

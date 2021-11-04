@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.NavArgs
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
 import com.ijlsa.poptoons.databinding.FragmentCategoryBinding
@@ -42,6 +43,11 @@ class CategoryFragment: Fragment() {
             categoryAdapter.addAll(it.filter { serie ->
                 serie.genres.contains(args.category)
             })
+        }
+
+        categoryAdapter.setOnSerieClickListener {
+            val directions = CategoryFragmentDirections.actionCategoryFragmentToSerieDetailsFragment(it)
+            findNavController().navigate(directions)
         }
 
     }

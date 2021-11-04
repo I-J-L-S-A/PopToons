@@ -19,7 +19,7 @@
     <TextView
         android:id="@+id/tvTitleSerie"
         android:layout_width="160dp"
-        android:layout_height="17dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="3dp"
         android:textColor="@color/black"
         android:textSize="15dp"

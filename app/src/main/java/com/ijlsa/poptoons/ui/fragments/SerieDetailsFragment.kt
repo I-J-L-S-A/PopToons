@@ -72,6 +72,7 @@ class SerieDetailsFragment : StepsBaseFragment() {
                 serieDetailViewModel.saveFavorite(Favorite(0, mySerie.id, System.currentTimeMillis().toString()))
             }
         }
+        binding.tvYear.text = "Año: " + mySerie.publication_year
         binding.tvDetNTemp.text = "Temporadas disponibles: " + mySerie.seasons.size
         binding.rvSeasons.adapter = seasonsAdapter
         binding.rvSeasons.layoutManager =

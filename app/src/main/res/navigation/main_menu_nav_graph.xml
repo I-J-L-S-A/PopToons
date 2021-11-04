@@ -59,6 +59,9 @@
         <argument
             android:name="category"
             app:argType="com.ijlsa.poptoons.ui.model.Categories" />
+        <action
+            android:id="@+id/action_categoryFragment_to_serieDetailsFragment"
+            app:destination="@id/serieDetailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"

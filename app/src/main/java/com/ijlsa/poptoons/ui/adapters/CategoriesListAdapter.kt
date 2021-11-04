@@ -16,11 +16,16 @@ import com.ijlsa.poptoons.ui.model.Series
 class CategoriesListAdapter: RecyclerView.Adapter<CategoriesViewHolder>() {
 
     val elementList: MutableList<Series> = mutableListOf()
+    private var onSerieClickListener: ((serie: Series) -> Unit)? = null
 
     fun addAll(newElementList: List<Series>) {
         elementList.clear()
         elementList.addAll(newElementList)
         notifyDataSetChanged()
+    }
+
+    fun setOnSerieClickListener(onSerieClickListener: ((serie: Series) -> Unit)?){
+        this.onSerieClickListener = onSerieClickListener
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoriesViewHolder {
@@ -30,7 +35,9 @@ class CategoriesListAdapter: RecyclerView.Adapter<CategoriesViewHolder>() {
 
     override fun onBindViewHolder(holder: CategoriesViewHolder, position: Int) {
         holder.bind(elementList[position])
-        //TODO (Maybe) Al hacer click en cierto elemento
+        holder.itemView.setOnClickListener{
+            onSerieClickListener?.invoke(elementList[position])
+        }
     }
 
     override fun getItemCount(): Int {

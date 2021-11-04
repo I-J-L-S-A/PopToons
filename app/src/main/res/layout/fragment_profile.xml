@@ -37,7 +37,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/imageView5"
         app:layout_constraintStart_toStartOf="@+id/imageView5"
         app:layout_constraintTop_toTopOf="@+id/ivSettings"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:srcCompat="@drawable/dexter" />
 
     <TextView
         android:id="@+id/tvUserUsername"
@@ -50,7 +50,7 @@
         app:layout_constraintHorizontal_bias="0.129"
         app:layout_constraintStart_toEndOf="@+id/ivUserAvatar"
         app:layout_constraintTop_toTopOf="@+id/ivUserAvatar"
-        tools:text="Brosito123" />
+        android:text="ILoveIJLSA"/>
 
     <TextView
         android:id="@+id/tvButtonLogout"
@@ -98,6 +98,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:scaleType="centerCrop"
+        app:srcCompat="@drawable/fondo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

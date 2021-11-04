@@ -21,15 +21,25 @@
         tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
 
+    <ImageView
+        android:id="@+id/button_favorite"
+        android:layout_width="65dp"
+        android:layout_height="74dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvTitleSerie"
+        app:layout_constraintEnd_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toTopOf="@+id/tvTitleSerie"
+        app:srcCompat="@drawable/emptystar" />
+
     <TextView
         android:id="@+id/tvTitleSerie"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:layout_marginEnd="5dp"
         android:textColor="@color/black"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/guideline4"
+        app:layout_constraintEnd_toStartOf="@+id/button_favorite"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline5"
         app:layout_constraintTop_toBottomOf="@+id/tvImageSerie"
@@ -41,6 +51,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:text="Sinopsis: "
         android:textColor="@color/black"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -48,8 +59,42 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline5"
         app:layout_constraintTop_toBottomOf="@+id/tvTitleSerie"
-        app:layout_constraintVertical_bias="0.0"
-        tools:text="Sinopsis: " />
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/tvSinopsis"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline4"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline5"
+        app:layout_constraintTop_toBottomOf="@+id/tvTSinopsis"
+        tools:text="vive en una piña debajo del mar" />
+
+    <TextView
+        android:id="@+id/tvYear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/guideline5"
+        app:layout_constraintTop_toBottomOf="@+id/tvSinopsis"
+        tools:text="Año: 1999" />
+
+    <TextView
+        android:id="@+id/tvDetNTemp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/guideline5"
+        app:layout_constraintTop_toBottomOf="@+id/tvYear"
+        tools:text="Temporadas disponibles: 1" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline5"
@@ -65,17 +110,6 @@
         android:orientation="vertical"
         app:layout_constraintGuide_begin="373dp" />
 
-    <TextView
-        android:id="@+id/tvSinopsis"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/guideline5"
-        app:layout_constraintTop_toBottomOf="@+id/tvTSinopsis"
-        tools:text="vive en una piña debajo del mar" />
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvSeasons"
         android:layout_width="0dp"
@@ -88,27 +122,5 @@
         app:layout_constraintTop_toBottomOf="@+id/tvDetNTemp"
         app:layout_constraintVertical_bias="0.0"
         tools:listitem="@layout/details_seasons_item" />
-
-    <TextView
-        android:id="@+id/tvDetNTemp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="@+id/guideline5"
-        app:layout_constraintTop_toBottomOf="@+id/tvSinopsis"
-        tools:text="Temporadas disponibles: 1" />
-
-    <ImageView
-        android:id="@+id/button_favorite"
-        android:layout_width="65dp"
-        android:layout_height="74dp"
-        android:layout_marginStart="60dp"
-        app:layout_constraintBottom_toBottomOf="@+id/tvTitleSerie"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tvTitleSerie"
-        app:layout_constraintTop_toTopOf="@+id/tvTitleSerie"
-        app:srcCompat="@drawable/emptystar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

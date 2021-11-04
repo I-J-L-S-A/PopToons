@@ -14,8 +14,7 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 
 class SeriesViewModel : ViewModel() {
-    val seriesRepository =
-        SeriesRepository(SeriesNetworkControllerImp(), SeriesPersistencyControllerImp())
+    val seriesRepository = SeriesRepository(SeriesNetworkControllerImp(), SeriesPersistencyControllerImp())
     val series = seriesRepository.getSeries().asLiveData(Dispatchers.IO)
     lateinit var resultSeries: LiveData<List<Series>>
     /*fun getSeries(): List<Series>{

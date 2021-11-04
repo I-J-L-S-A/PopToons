@@ -40,14 +40,16 @@ class SearchFragment : StepsBaseFragment() {
         binding.categoriesList.adapter = categoriesListAdapter
 
         binding.seriesResult.layoutManager =
-            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+            //LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+            GridLayoutManager(context, 2, GridLayoutManager.VERTICAL, false)
         seriesListAdapter.setOnSerieClickListener {
             val directions = SearchFragmentDirections.actionSearchFragmentToSerieDetailsFragment(it)
             findNavController().navigate(directions)
         }
 
         binding.categoriesList.layoutManager =
-            GridLayoutManager(context, 2, GridLayoutManager.VERTICAL, false)
+            //GridLayoutManager(context, 2, GridLayoutManager.VERTICAL, false)
+            LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         categoriesListAdapter.setOnCategoryItemClickListener {
             val directions = SearchFragmentDirections.actionSearchFragmentToCategoryFragment(it)
             findNavController().navigate(directions)
@@ -55,9 +57,9 @@ class SearchFragment : StepsBaseFragment() {
 
         categoriesListAdapter.addAll(Categories.values().toList())
 
-        seriesViewModel.series.observe(viewLifecycleOwner) {
+        /*seriesViewModel.series.observe(viewLifecycleOwner) {
             seriesListAdapter.addAll(it)
-        }
+        }*/
         //seriesViewModel.getSeries(requireContext())
 
 
@@ -70,13 +72,15 @@ class SearchFragment : StepsBaseFragment() {
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                //searchViewModel.searchStarted.postValue( s != null && s.isNotEmpty())
                 if (!s.isNullOrEmpty()) {
                     binding.seriesResult.visibility = View.VISIBLE
                 } else {
                     binding.seriesResult.visibility = View.GONE
                 }
                 seriesViewModel.searchSerie(s.toString())
+                seriesViewModel.resultSeries.observe(viewLifecycleOwner){
+                    seriesListAdapter.addAll(it)
+                }
             }
         }
 

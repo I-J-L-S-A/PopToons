@@ -1,4 +1,4 @@
-package com.ijlsa.poptoons.ui
+package com.ijlsa.poptoons.ui.activities
 
 import androidx.annotation.IdRes
 import androidx.appcompat.app.AppCompatActivity

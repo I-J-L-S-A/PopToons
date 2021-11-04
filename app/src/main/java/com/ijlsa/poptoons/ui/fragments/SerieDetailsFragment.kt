@@ -4,8 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,16 +12,12 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.ijlsa.poptoons.R
-import com.ijlsa.poptoons.databinding.FragmentCategoryBinding
 import com.ijlsa.poptoons.databinding.FragmentSerieDetailsBinding
+import com.ijlsa.poptoons.ui.adapters.SeasonsAdapter
 import com.ijlsa.poptoons.ui.model.Favorite
 import com.ijlsa.poptoons.ui.model.Series
 import com.ijlsa.poptoons.ui.viewmodels.SerieDetailViewModel
 import com.ijlsa.poptoons.ui.viewmodels.SeriesViewModel
-import java.util.*
-import com.ijlsa.poptoons.ui.adapters.HomeCategoriesListAdapter
-import com.ijlsa.poptoons.ui.adapters.SeasonsAdapter
-import com.ijlsa.poptoons.ui.model.Categories
 
 
 class SerieDetailsFragment : StepsBaseFragment() {
@@ -52,7 +46,6 @@ class SerieDetailsFragment : StepsBaseFragment() {
             .transform(CenterCrop(), RoundedCorners(25))
             .into(binding.tvImageSerie)
         binding.tvTitleSerie.text = mySerie.title
-        //binding.tvSeasonsNumber.text = mySerie.seasons.toString()
         binding.tvSinopsis.text = mySerie.description
 
         serieDetailViewModel.favorite.observe(viewLifecycleOwner){

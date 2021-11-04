@@ -2,7 +2,6 @@ package com.ijlsa.poptoons.data.user.network
 
 import com.ijlsa.poptoons.ui.model.LoginRequest
 import com.ijlsa.poptoons.ui.model.RegisterRequest
-import com.ijlsa.poptoons.ui.model.User
 import retrofit2.http.Body
 import retrofit2.http.POST
 

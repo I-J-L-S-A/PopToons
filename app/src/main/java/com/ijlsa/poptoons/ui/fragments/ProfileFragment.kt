@@ -5,9 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.GridLayout
-import android.widget.ImageView
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
@@ -15,7 +12,6 @@ import com.ijlsa.poptoons.R
 import com.ijlsa.poptoons.databinding.FragmentProfileBinding
 import com.ijlsa.poptoons.ui.activities.LoginSignUpActivity
 import com.ijlsa.poptoons.ui.adapters.HomeSeriesListsAdapter
-import com.ijlsa.poptoons.ui.model.Categories
 import com.ijlsa.poptoons.ui.viewmodels.FavoritesViewModel
 
 

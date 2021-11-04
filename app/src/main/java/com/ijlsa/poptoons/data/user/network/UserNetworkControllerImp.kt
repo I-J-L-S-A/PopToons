@@ -1,7 +1,7 @@
 package com.ijlsa.poptoons.data.user.network
 
-import com.ijlsa.poptoons.data.series.network.SeriesAPI
 import com.ijlsa.poptoons.ui.model.LoginRequest
+import com.ijlsa.poptoons.ui.model.RegisterRequest
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -14,5 +14,9 @@ class UserNetworkControllerImp: UserNetworkController {
 
     override suspend fun login(email: String, password: String) {
         return client.login(LoginRequest(email, password))
+    }
+
+    override suspend fun register(email: String, password: String, username: String) {
+        return client.register(RegisterRequest(username, email, password))
     }
 }

@@ -1,11 +1,9 @@
 package com.ijlsa.poptoons.ui.fragments
 
 import android.os.Bundle
-import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ijlsa.poptoons.databinding.FragmentHomeBinding
@@ -32,17 +30,10 @@ class HomeFragment : StepsBaseFragment() {
         binding.rvHome.adapter = homeAdapter
         binding.rvHome.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-        /*if(seriesViewModel.series.value != null){
-            homeAdapter.addAll(Categories.values().toList(), seriesViewModel.series.value!!)
-        }*/
         seriesViewModel.series.observe(viewLifecycleOwner){
             val categoriesHome = Categories.values().toList()
             homeAdapter.addAll(categoriesHome.subList(0, 8) ,it)
         }
-        //homeAdapter.addAll(Categories.values().toList(), seriesViewModel.series.value!!)
-        //homeAdapter.setOnSeriesItemClickListener{
-        //    findNavController().navigate(R.id.action_homeFragment_to_serieDetailsFragment)
-        //}
 
     }
 }

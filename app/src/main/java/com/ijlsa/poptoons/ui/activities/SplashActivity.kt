@@ -1,10 +1,9 @@
 package com.ijlsa.poptoons.ui.activities
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import com.ijlsa.poptoons.R
+import androidx.appcompat.app.AppCompatActivity
 import com.ijlsa.poptoons.databinding.ActivitySplashBinding
 
 class SplashActivity : AppCompatActivity() {

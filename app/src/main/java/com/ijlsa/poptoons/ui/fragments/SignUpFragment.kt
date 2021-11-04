@@ -5,13 +5,17 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.ijlsa.poptoons.databinding.FragmentSignUpBinding
 import com.ijlsa.poptoons.ui.activities.MainMenuActivity
+import com.ijlsa.poptoons.ui.viewmodels.LoginViewModel
 
 class SignUpFragment: StepsBaseFragment(){
 
     private lateinit var binding: FragmentSignUpBinding
+    private val loginViewModel: LoginViewModel by viewModels()
+
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
@@ -23,10 +27,17 @@ class SignUpFragment: StepsBaseFragment(){
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.registerButton.setOnClickListener{
-            val intent = Intent(activity, MainMenuActivity::class.java)
-            startActivity(intent)
-            //TODO Pasar datos de signUp a otra funcion (llamar al API en todo caso)
-            activity?.finish()
+            if (binding.editConfirmPassword.text.toString() == binding.editPassword.text.toString()){
+                val email = binding.editEmail.text.toString()
+                val password = binding.editPassword.text.toString()
+                val username = binding.editUser.text.toString()
+
+                loginViewModel.register(email, password, username).invokeOnCompletion {
+                    val intent = Intent(activity, MainMenuActivity::class.java)
+                    startActivity(intent)
+                    activity?.finish()
+                }
+            }
         }
         binding.tvLogin.setOnClickListener{
             val directions = SignUpFragmentDirections.actionSignUpFragmentToLoginFragment()

@@ -40,7 +40,6 @@ class SearchFragment : StepsBaseFragment() {
         binding.categoriesList.adapter = categoriesListAdapter
 
         binding.seriesResult.layoutManager =
-            //LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
             GridLayoutManager(context, 2, GridLayoutManager.VERTICAL, false)
         seriesListAdapter.setOnSerieClickListener {
             val directions = SearchFragmentDirections.actionSearchFragmentToSerieDetailsFragment(it)
@@ -48,7 +47,6 @@ class SearchFragment : StepsBaseFragment() {
         }
 
         binding.categoriesList.layoutManager =
-            //GridLayoutManager(context, 2, GridLayoutManager.VERTICAL, false)
             LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         categoriesListAdapter.setOnCategoryItemClickListener {
             val directions = SearchFragmentDirections.actionSearchFragmentToCategoryFragment(it)
@@ -57,13 +55,6 @@ class SearchFragment : StepsBaseFragment() {
 
         categoriesListAdapter.addAll(Categories.values().toList())
 
-        /*seriesViewModel.series.observe(viewLifecycleOwner) {
-            seriesListAdapter.addAll(it)
-        }*/
-        //seriesViewModel.getSeries(requireContext())
-
-
-        //TODO implementar un text watcher
         val textWatcher = object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
             }

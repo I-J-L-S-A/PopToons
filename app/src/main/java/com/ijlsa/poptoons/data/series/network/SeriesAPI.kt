@@ -1,7 +1,6 @@
 package com.ijlsa.poptoons.data.series.network
 
 import com.ijlsa.poptoons.ui.model.Series
-import kotlinx.coroutines.flow.Flow
 import retrofit2.http.GET
 
 interface SeriesAPI {

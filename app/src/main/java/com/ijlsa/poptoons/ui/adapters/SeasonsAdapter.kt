@@ -11,7 +11,6 @@ import com.ijlsa.poptoons.ui.model.Episodes
 class SeasonsAdapter(private val parentFragment: Fragment) : RecyclerView.Adapter<SeasonsListViewH>() {
 
     private val elementList: MutableList<List<Episodes>> = mutableListOf()
-    //private var onSerieItemClickListener: (() -> Unit)? = null
 
     fun addAll(newElementList: List<List<Episodes>>) {
         elementList.clear()
@@ -33,10 +32,6 @@ class SeasonsAdapter(private val parentFragment: Fragment) : RecyclerView.Adapte
         return elementList.size
     }
 
-    /*fun setOnSeriesItemClickListener(onSerieItemClickListener: (() -> Unit)?){
-        this.onSerieItemClickListener = onSerieItemClickListener
-    }*/
-
 }
 
 class SeasonsListViewH(val binding: DetailsSeasonsItemBinding, private val parentFragment: Fragment) : RecyclerView.ViewHolder(binding.root) {
@@ -51,20 +46,6 @@ class SeasonsListViewH(val binding: DetailsSeasonsItemBinding, private val paren
             LinearLayoutManager(itemView.context, LinearLayoutManager.VERTICAL, false)
 
         episodesAdapter.addAll(episodes as MutableList<Episodes>)
-        /*episodesAdapter.setOnSerieClickListener{
-            val directions = HomeFragmentDirections.actionHomeFragmentToSerieDetailsFragment(it)
-            parentFragment.findNavController().navigate(directions)
-        }*/
 
     }
-
-    /*private fun listOfEpisodes(
-        season: Int,
-        episodes: List<Episodes>
-    ): MutableList<Episodes> {
-
-        return episodes.filter { episodes ->
-            episodes.numSeason == season
-        } as MutableList<Episodes>
-    }*/
 }

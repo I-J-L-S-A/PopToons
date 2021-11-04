@@ -1,7 +1,6 @@
 package com.ijlsa.poptoons.ui.viewmodels
 
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.asLiveData
 import com.ijlsa.poptoons.data.user.UserRepository
 import com.ijlsa.poptoons.data.user.network.UserNetworkControllerImp
 import kotlinx.coroutines.CoroutineScope
@@ -14,5 +13,9 @@ class LoginViewModel: ViewModel() {
 
     fun login(email: String, password: String): Job{
         return userRepository.login(email, password).launchIn(CoroutineScope(Dispatchers.IO))
+    }
+
+    fun register(email: String, password: String, username: String): Job {
+        return userRepository.register(email, password, username).launchIn(CoroutineScope(Dispatchers.IO))
     }
 }

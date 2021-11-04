@@ -1,6 +1,5 @@
 package com.ijlsa.poptoons.data.favorites
 
-import com.ijlsa.poptoons.NetworkUtils
 import com.ijlsa.poptoons.data.favorites.persistency.FavoritesPersistencyController
 import com.ijlsa.poptoons.ui.model.Favorite
 import com.ijlsa.poptoons.ui.model.Series

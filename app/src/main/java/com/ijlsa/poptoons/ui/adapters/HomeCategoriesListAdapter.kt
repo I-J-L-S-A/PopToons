@@ -10,7 +10,6 @@ import com.ijlsa.poptoons.databinding.HomeCategoriesListBinding
 import com.ijlsa.poptoons.ui.fragments.HomeFragmentDirections
 import com.ijlsa.poptoons.ui.model.Categories
 import com.ijlsa.poptoons.ui.model.Series
-import com.ijlsa.poptoons.ui.viewmodels.SeriesViewModel
 
 class HomeCategoriesListAdapter(private val parentFragment: Fragment) : RecyclerView.Adapter<HomeCategoriesListViewH>() {
 
@@ -71,13 +70,6 @@ class HomeCategoriesListViewH(val binding: HomeCategoriesListBinding, private va
         category: Categories,
         seriesList: List<Series>
     ): List<Series> {
-//        var newSeriesList = mutableListOf<Serie>()
-
-//        seriesList.forEach { serie ->
-//            serie.genders.forEach { gender ->
-//                if (gender == category) newSeriesList.add(serie)
-//            }
-//        }
         return seriesList.filter { serie ->
             serie.genres.contains(category)
         } as MutableList<Series>

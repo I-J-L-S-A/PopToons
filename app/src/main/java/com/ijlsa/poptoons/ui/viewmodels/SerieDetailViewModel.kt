@@ -19,9 +19,12 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
+import org.koin.java.KoinJavaComponent.inject
 
 class SerieDetailViewModel : ViewModel() {
-    private val favoritesRepository = FavoritesRepository(FavoritesPersistencyControllerImpl())
+    //private val favoritesRepository = FavoritesRepository(FavoritesPersistencyControllerImpl())
+
+    private val favoritesRepository by inject(FavoritesRepository::class.java)
     val favorite = MutableLiveData<Favorite?>()
 
     fun getFavoriteBySerieId(serieId: Int){

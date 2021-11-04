@@ -37,11 +37,16 @@
         <action
             android:id="@+id/action_profileFragment_to_settingsFragment"
             app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_serieDetailsFragment"
+            app:destination="@id/serieDetailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/serieDetailsFragment"
         android:name="com.ijlsa.poptoons.ui.fragments.SerieDetailsFragment"
-        android:label="SerieDetailsFragment" >
+        android:label="SerieDetailsFragment"
+        tools:layout="@layout/fragment_serie_details">
+
         <argument
             android:name="serie"
             app:argType="com.ijlsa.poptoons.ui.model.Series" />
@@ -49,7 +54,8 @@
     <fragment
         android:id="@+id/categoryFragment"
         android:name="com.ijlsa.poptoons.ui.fragments.CategoryFragment"
-        android:label="CategoryFragment" >
+        android:label="CategoryFragment"
+        tools:layout="@layout/fragment_category">
         <argument
             android:name="category"
             app:argType="com.ijlsa.poptoons.ui.model.Categories" />
@@ -57,5 +63,6 @@
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.ijlsa.poptoons.ui.fragments.SettingsFragment"
-        android:label="SettingsFragment" />
+        android:label="SettingsFragment"
+        tools:layout="@layout/fragment_settings"/>
 </navigation>

@@ -2,6 +2,7 @@ package com.ijlsa.poptoons.data.favorites.persistency
 
 import com.ijlsa.poptoons.App
 import com.ijlsa.poptoons.ui.model.Favorite
+import com.ijlsa.poptoons.ui.model.Series
 import kotlinx.coroutines.flow.Flow
 
 class FavoritesPersistencyControllerImpl : FavoritesPersistencyController {
@@ -22,6 +23,10 @@ class FavoritesPersistencyControllerImpl : FavoritesPersistencyController {
 
     override fun deleteFavorite(favorite: Favorite) {
         db.favoritesDao().deleteFavorite(favorite)
+    }
+
+    override fun getFavoriteSeries(): List<Series> {
+        return db.favoritesDao().getFavoriteSeries()
     }
 
 

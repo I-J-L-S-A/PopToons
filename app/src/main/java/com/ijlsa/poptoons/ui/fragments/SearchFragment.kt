@@ -14,7 +14,7 @@ import com.ijlsa.poptoons.databinding.FragmentSearchBinding
 import com.ijlsa.poptoons.ui.adapters.HomeSeriesListsAdapter
 import com.ijlsa.poptoons.ui.adapters.SearchPageCategoriesListAdapter
 import com.ijlsa.poptoons.ui.model.Categories
-import com.ijlsa.poptoons.ui.viewmodels.SearchViewModel
+import com.ijlsa.poptoons.ui.viewmodels.FavoritesViewModel
 import com.ijlsa.poptoons.ui.viewmodels.SeriesViewModel
 
 class SearchFragment : StepsBaseFragment() {
@@ -23,7 +23,7 @@ class SearchFragment : StepsBaseFragment() {
     private val seriesListAdapter = HomeSeriesListsAdapter()
     private val categoriesListAdapter = SearchPageCategoriesListAdapter()
     private val seriesViewModel: SeriesViewModel by viewModels()
-    private val searchViewModel: SearchViewModel by viewModels()
+    private val favoritesViewModel: FavoritesViewModel by viewModels()
 
 
     override fun onCreateView(

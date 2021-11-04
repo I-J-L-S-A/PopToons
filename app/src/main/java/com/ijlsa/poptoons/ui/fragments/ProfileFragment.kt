@@ -6,16 +6,24 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.GridLayout
 import android.widget.ImageView
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
 import com.ijlsa.poptoons.R
 import com.ijlsa.poptoons.databinding.FragmentProfileBinding
 import com.ijlsa.poptoons.ui.activities.LoginSignUpActivity
+import com.ijlsa.poptoons.ui.adapters.HomeSeriesListsAdapter
+import com.ijlsa.poptoons.ui.model.Categories
+import com.ijlsa.poptoons.ui.viewmodels.FavoritesViewModel
 
 
-class ProfileFragment: StepsBaseFragment() {
+class ProfileFragment : StepsBaseFragment() {
 
     private lateinit var binding: FragmentProfileBinding
+    private val favoritesListAdapter = HomeSeriesListsAdapter()
+    private val favoritesViewModel: FavoritesViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -27,12 +35,10 @@ class ProfileFragment: StepsBaseFragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val settings = view.findViewById<ImageView>(R.id.ivSettings)
-        settings.setOnClickListener(){
+        binding.ivSettings.setOnClickListener() {
             findNavController().navigate(R.id.action_profileFragment_to_settingsFragment)
         }
-        val login = view.findViewById<Button>(R.id.loginButton)
-        login.setOnClickListener{
+        binding.loginButton.setOnClickListener {
             val intent = Intent(this.context, LoginSignUpActivity::class.java)
             if (view.id == R.id.loginButton) {
                 intent.putExtra("fragment", "login")
@@ -41,5 +47,17 @@ class ProfileFragment: StepsBaseFragment() {
             }
             startActivity(intent)
         }
+
+        binding.navHostFragmentContainer2.adapter = favoritesListAdapter
+        binding.navHostFragmentContainer2.layoutManager =
+            GridLayoutManager(context, 2, GridLayoutManager.VERTICAL, false)
+        favoritesListAdapter.setOnSerieClickListener {
+            val directions = ProfileFragmentDirections.actionProfileFragmentToSerieDetailsFragment(it)
+            findNavController().navigate(directions)
+        }
+        favoritesViewModel.favorites.observe(viewLifecycleOwner){
+            favoritesListAdapter.addAll(it)
+        }
+
     }
 }

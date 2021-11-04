@@ -27,18 +27,11 @@ class ProfileFragment: StepsBaseFragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val settings = view.findViewById<ImageView>(R.id.ivSettings)
-        settings.setOnClickListener(){
+        binding.ivSettings.setOnClickListener(){
             findNavController().navigate(R.id.action_profileFragment_to_settingsFragment)
         }
-        val login = view.findViewById<Button>(R.id.loginButton)
-        login.setOnClickListener{
+        binding.loginButton.setOnClickListener{
             val intent = Intent(this.context, LoginSignUpActivity::class.java)
-            if (view.id == R.id.loginButton) {
-                intent.putExtra("fragment", "login")
-            } else {
-                intent.putExtra("fragment", "signup")
-            }
             startActivity(intent)
         }
     }

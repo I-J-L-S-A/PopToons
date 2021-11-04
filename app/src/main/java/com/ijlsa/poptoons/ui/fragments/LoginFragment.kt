@@ -7,14 +7,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.ijlsa.poptoons.R
 import com.ijlsa.poptoons.databinding.FragmentCategoryBinding
 import com.ijlsa.poptoons.databinding.FragmentLoginBinding
 import com.ijlsa.poptoons.ui.activities.MainMenuActivity
+import com.ijlsa.poptoons.ui.viewmodels.LoginViewModel
 
 class LoginFragment: StepsBaseFragment() {
-    private lateinit var buttonLogin: Button
     private lateinit var binding: FragmentLoginBinding
+    private val loginViewModel: LoginViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -27,17 +30,20 @@ class LoginFragment: StepsBaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.loginButton.setOnClickListener{
-            val intent = Intent(activity, MainMenuActivity::class.java)
-            startActivity(intent)
-            //Pasar datos de login a otra funcion
-            activity?.finish()
+            val email = binding.editEmail.text.toString()
+            val password = binding.editPassword.text.toString()
+
+            loginViewModel.login(email, password).invokeOnCompletion {
+                val intent = Intent(activity, MainMenuActivity::class.java)
+                startActivity(intent)
+                activity?.finish()
+            }
+
         }
-        val signup = view.findViewById<TextView>(R.id.tvSignUp)
-        signup.setOnClickListener{
-            val ft = parentFragmentManager.beginTransaction()
-            ft.add(SignUpFragment(), "tagSignUp")
-            ft.addToBackStack("SignUp")
-            ft.commit()
+
+        binding.tvSignUp.setOnClickListener{
+            val directions = LoginFragmentDirections.actionLoginFragmentToSignUpFragment()
+            findNavController().navigate(directions)
         }
 
     }

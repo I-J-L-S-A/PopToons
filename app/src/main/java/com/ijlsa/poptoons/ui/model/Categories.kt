@@ -9,14 +9,38 @@ enum class Categories {
     Comedy,
     @SerializedName("Child")
     Child,
+    @SerializedName("Adult")
+    Adult,
     @SerializedName("Adventure")
     Adventure,
-    @SerializedName("SciFi")
-    ScienceFiction,
-    @SerializedName("DH")
-    DarkHumor,
+    @SerializedName("Sh")
+    Superheroes,
+    @SerializedName("Anime")
+    Anime,
     @SerializedName("60")
     Decade1960,
+    @SerializedName("Ac")
+    Action,
+    @SerializedName("Musical")
+    Musical,
+    @SerializedName("DH")
+    DarkHumor,
+    @SerializedName("Sat")
+    Satire,
+    @SerializedName("SOp")
+    SoapOpera,
+    @SerializedName("edu")
+    Educative,
+    @SerializedName("Drama")
+    Drama,
+    @SerializedName("Cmr")
+    RomanticComedy,
+    @SerializedName("Mock")
+    Mockumentary,
+    @SerializedName("Fan")
+    Fantasy,
+    @SerializedName("SciFi")
+    ScienceFiction,
     @SerializedName("70")
     Decade1970,
     @SerializedName("80")

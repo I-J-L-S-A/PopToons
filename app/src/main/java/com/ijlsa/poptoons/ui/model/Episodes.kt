@@ -5,7 +5,7 @@ import java.io.FileDescriptor
 import java.io.Serializable
 
 data class Episodes (val numSeason :Int,
-                     val numEpisodio:Int,
+                     val numEpisode:Int,
                      val eTitle: String,
                      val duration: String,
                      val description: String

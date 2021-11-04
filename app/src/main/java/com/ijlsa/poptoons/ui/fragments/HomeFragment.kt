@@ -36,7 +36,8 @@ class HomeFragment : StepsBaseFragment() {
             homeAdapter.addAll(Categories.values().toList(), seriesViewModel.series.value!!)
         }*/
         seriesViewModel.series.observe(viewLifecycleOwner){
-            homeAdapter.addAll(Categories.values().toList(),it)
+            val categoriesHome = Categories.values().toList()
+            homeAdapter.addAll(categoriesHome.subList(0, 8) ,it)
         }
         //homeAdapter.addAll(Categories.values().toList(), seriesViewModel.series.value!!)
         //homeAdapter.setOnSeriesItemClickListener{

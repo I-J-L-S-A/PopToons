@@ -44,8 +44,8 @@ class SeasonsListViewH(val binding: DetailsSeasonsItemBinding, private val paren
     private val episodesAdapter = EpisodesListsAdapter()
 
     fun bind(season: Int, episodes: List<Episodes>) {
-
-        binding.tvSeason.text = "Temporada $season"
+        val num = season + 1
+        binding.tvSeason.text = "Temporada $num"
         binding.rvEpisodes.adapter = episodesAdapter
         binding.rvEpisodes.layoutManager =
             LinearLayoutManager(itemView.context, LinearLayoutManager.VERTICAL, false)
